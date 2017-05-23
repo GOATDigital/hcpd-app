@@ -6,7 +6,7 @@ import Stickify from '../components/Stickify';
 import FilterBarContainer from '../containers/FilterBarContainer';
 import DoctorsHeader from '../components/DoctorsHeader';
 import DoctorCount from '../components/DoctorCount';
-
+import NoResults from '../components/NoResults';
 
 class Doctors extends Component {
   componentWillMount() {
@@ -18,7 +18,7 @@ class Doctors extends Component {
     }
     else {
       // NOTE: MAKE ERROR HELPER AND INSERT HERE
-      return "We couldn't find any doctors with your selected filters."
+      return <NoResults/>
     }
   }
 
