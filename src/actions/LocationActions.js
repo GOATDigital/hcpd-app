@@ -21,7 +21,7 @@ export function changeLocation(place_id) {
 
 function getLatLong(place_id) {
   return dispatch => {
-    return fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${place_id}&key=${GOOGLE_MAPS_API}`, {'mode': 'no-cors'})    
+    return fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${place_id}&key=${GOOGLE_MAPS_API}`, {mode: 'no-cors'})    
       .then((response) => {
         return response.json();
       }).then((json) => {

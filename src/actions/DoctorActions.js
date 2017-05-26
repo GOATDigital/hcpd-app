@@ -28,7 +28,7 @@ export function fetchDoctors(siteID) {
     return fetch(`${API_ADDRESS}/api/listings?siteId=${siteID}`, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${localStorage.token}`,
+        Authorization: `Bearer ${localStorage.token}`
       },
     })
       .then(response => response.json())

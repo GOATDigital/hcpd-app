@@ -6,7 +6,7 @@ function loginUser() {
     fetch(`${API_ADDRESS}/api/auth/login`, {
       method: 'POST',
       headers: {  
-        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"  
+        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" 
       },  
       body: `password=${API_PASSWORD}&username=${API_USERNAME}&_id=${API_USER_ID}`,
     })
@@ -19,7 +19,7 @@ export function initAuth() {
   return dispatch => {
     const siteStorage = localStorage;
     const { token } = siteStorage;
-    if (!token) {
+    if (!siteStorage.token) {
       console.log('loging in')
       return dispatch(loginUser());
     }

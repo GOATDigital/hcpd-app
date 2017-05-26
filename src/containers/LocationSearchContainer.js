@@ -66,7 +66,9 @@ class LocationSearchContainer extends Component {
     this.setState({
       isLoadingExternally: true
     })
-    return fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${GOOGLE_MAPS_API}`, {'mode': 'no-cors'})    
+    return fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${GOOGLE_MAPS_API}`, {
+  mode : 'no-cors'
+})    
       .then((response) => {
         return response.json();
       }).then((json) => {

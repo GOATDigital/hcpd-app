@@ -28,5 +28,8 @@ module.exports = {
     ignore,
     new ExtractTextPlugin('./public/css/main.css'),
     new webpack.optimize.CommonsChunkPlugin('vendor', './public/js/vendor.js', Infinity),
+    new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    })
   ],
 };
