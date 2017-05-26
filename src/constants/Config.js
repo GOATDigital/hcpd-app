@@ -4,3 +4,4 @@ export const API_ADDRESS = 'http://localhost:3000';
 export const API_USER_ID = '59285539b8deb639861a1e07';
 export const API_USERNAME = 'nea';
 export const API_PASSWORD = 'nea-hcpd';
+export const APP_EMBED_ELEMENT = 'hcpd-container';

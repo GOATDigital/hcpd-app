@@ -8,12 +8,24 @@ import { Provider } from 'react-redux';
 
 import AppContainer from './containers/AppContainer';
 import configureStore from './store/configureStore';
+import APP_EMBED_ELEMENT from './constants/Config';
 
 const store = configureStore();
 
-ReactDOM.render(
-  <Provider store={store} >
-    <AppContainer />
-  </Provider>,
-  document.getElementById('main')
-);
+const renderApp = (config) => {
+  ReactDOM.render(
+    <Provider store={store} >
+      <AppContainer config={config}/>
+    </Provider>,
+    document.getElementById(APP_EMBED_ELEMENT)
+  );
+};
+
+const init = (configObject) => {
+  console.log('Start Hcpd with config: ', configObject);
+  renderApp(configObject);
+};
+ 
+window.Hcpd = {init};
+
+export default init;

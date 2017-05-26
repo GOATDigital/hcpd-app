@@ -10,7 +10,13 @@ import { initAuth } from '../actions/AuthedActions';
 import { initNavigator } from '../actions/NavigatorActions';
 import { initSettings } from '../actions/SettingsActions';
 
+import PropTypes from 'prop-types';
+
 class AppContainer extends Component {
+
+  static propTypes = {
+     config: PropTypes.object()
+   }
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -40,7 +46,7 @@ class AppContainer extends Component {
         <Header head={'Health Care Provider Directory'} subhead={'Find a health care provider with experience treating Eczema'} />
         {this.renderContent()}
       </div>
-    )
+    );
   }
 }
 
