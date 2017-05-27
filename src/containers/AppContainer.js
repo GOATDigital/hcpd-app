@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import NavContainer from './NavContainer';
 import DoctorsContainer from './DoctorsContainer';
@@ -10,13 +11,11 @@ import { initAuth } from '../actions/AuthedActions';
 import { initNavigator } from '../actions/NavigatorActions';
 import { initSettings } from '../actions/SettingsActions';
 
-import PropTypes from 'prop-types';
+const propTypes = {
+  config: PropTypes.object()
+};
 
 class AppContainer extends Component {
-
-  static propTypes = {
-     config: PropTypes.object()
-   }
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -61,5 +60,7 @@ function mapStateToProps(state) {
     width,
   };
 }
+
+AppContainer.propTypes = propTypes;
 
 export default connect(mapStateToProps)(AppContainer);

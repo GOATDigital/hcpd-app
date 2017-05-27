@@ -12,7 +12,7 @@ const DoctorItem = ({payment_methods, languages_spoken, type_of_practice, office
         </div>
         {doctor_image ?<div className='inline doctor-image'>
           <span className='image-wrapper'><img src={`${API_ADDRESS}/media/images/${doctor_image}`} /></span>
-          {has_video ? <a href={`#`}><img src={`${API_ADDRESS}/media/images/Play.svg`} /> Click to see video</a> : ''}
+          {has_video ? <a href={`#`} className='video-link'><img src={`${API_ADDRESS}/media/images/Play.svg`} /> Click to see video</a> : ''}
         </div>: ''}
         <div className='inline'>
           <h4><a href="#">{des}</a></h4>

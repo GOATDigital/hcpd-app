@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 import SelectContainer from '../containers/SelectContainer';
 import LocationSearchContainer from '../containers/LocationSearchContainer';
