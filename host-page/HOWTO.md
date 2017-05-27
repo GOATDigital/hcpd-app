@@ -12,7 +12,7 @@ To embed app there must be 3 part included
 
     ```
     <script type="text/javascript">
-        Hcpd.default({
+        Hcpd_app.init({
             TCPD_APP_ID: "78f5390a4fdec70089e5923c"
         });
     </script>

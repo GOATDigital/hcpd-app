@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import AppContainer from './containers/AppContainer';
 import configureStore from './store/configureStore';
-import APP_EMBED_ELEMENT from './constants/Config';
+import {APP_EMBED_ELEMENT} from './constants/Config';
 
 const store = configureStore();
 
@@ -22,10 +22,11 @@ const renderApp = (config) => {
 };
 
 const init = (configObject) => {
-  console.log('Start Hcpd with config: ', configObject);
+  if(__DEV__) console.log('Start Hcpd with config: ', configObject);
   renderApp(configObject);
 };
- 
-window.Hcpd = {init};
+
+
+window.Hcpd_app = {init};
 
 export default init;
