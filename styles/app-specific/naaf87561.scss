@@ -1,8 +1,19 @@
-naaf87561/* NAAF design */
+/* NAAF design */
 
 div.naaf87561 {
-    background: blue;
+    color:#5c5b5c;
     .doctor-item {
         background: red;
+    }
+    .link-button {
+        background: #65d1db;
+        color: white;
+    }
+    .video-link {
+        color: #65d1db;
+    }
+    .doctor-item {
+        border-bottom: 1px solid #e3f7f9;
+        background: #ffffff;
     }
 }
