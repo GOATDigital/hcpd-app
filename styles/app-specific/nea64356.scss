@@ -1,0 +1,33 @@
+/* NEA design */
+
+div.nea64356 {
+    background: black;
+    .email-link {
+        background: #5c5b5c;
+         :hover {
+            color: #ff9d00;
+        }
+    }
+    .website-link {
+        color: #84a331;
+    }
+    .doctor-item {
+        border: 1px solid #d6eef9;
+         :hover {
+            -webkit-box-shadow: 0 3px 5px 1px rgba(100, 100, 100, 0.3);
+            box-shadow: 0 3px 5px 1px rgba(100, 100, 100, 0.3);
+        }
+    }
+    .page-bg {
+        background: #e7e7e7;
+    }
+    .image-wrapper {
+        background: #10c4ee;
+    }
+    .doctor-title {
+        background: #00478a;
+    }
+    .text-style {
+        background: #5c5b5c;
+    }
+}

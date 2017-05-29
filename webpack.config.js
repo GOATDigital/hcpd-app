@@ -29,8 +29,8 @@ module.exports = {
         new webpack.DefinePlugin({
               'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
               __DEV__: isDebug,
-              __APPID__: '78f5390a4fdec70089e5923c'//57f5390a5fdec70078e5923c
-        }),
+              '__APPID__': JSON.stringify('nea64356')//naaf87561 OR nea64356
+        })
       ],
   devServer: {
     host: '0.0.0.0',
