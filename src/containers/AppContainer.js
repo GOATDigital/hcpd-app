@@ -18,6 +18,7 @@ const propTypes = {
 class AppContainer extends Component {
 
   componentDidMount() {
+    window.appid_tmp = this.props.config.TCPD_APP_ID;
     const { dispatch } = this.props;
     dispatch(initEnvironment());
     dispatch(initAuth());
