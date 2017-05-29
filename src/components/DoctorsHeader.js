@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 
 
 export default class DoctorsHeader extends Component {
-  
   render() {
-    let headers = ['Name', 'Type of Practice', 'Payment Options', 'Contact' ];
+    let headers = (__APPID__=== 'naaf87561') ? ['', 'Age, /n Gender', 'Will meet with', 'Type of Alopecia Areata', 'Contact'] : ['Badge', 'Name', 'Type of Practice', 'Payment options', 'Contacts'];
     return (
       <div className="doctorsHeader">
         <div className="flex">

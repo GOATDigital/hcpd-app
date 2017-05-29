@@ -29,7 +29,7 @@ module.exports = {
         new webpack.DefinePlugin({
               'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
               __DEV__: isDebug,
-              '__APPID__': JSON.stringify('nea64356')//naaf87561 OR nea64356
+              '__APPID__': JSON.stringify('naaf87561')//naaf87561 OR nea64356
         })
       ],
   devServer: {

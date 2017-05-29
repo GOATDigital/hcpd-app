@@ -48,6 +48,7 @@ class FilterBar extends Component {
   renderToggleButton() {
     return (
       <Button
+        className='toggle-filters-text'
         text={this.props.filtersVisible ? 'Show Less Filters' : 'Show More Filters'}
         onClick={this.handleClick}
       />
@@ -117,7 +118,7 @@ class FilterBar extends Component {
     return (
       <div className="FilterBar">
         <div className="statesFilter">
-          <p>Find a Provider Near You</p>
+          <p className='find-provider-text'>Find a Provider Near You</p>
           <LocationSearchContainer />
           <div className="filterToggleButton">
             {this.renderToggleButton()}

@@ -12,7 +12,7 @@ const DoctorItemNEA = ({payment_methods, languages_spoken, type_of_practice, off
           <span className='image-wrapper'><img src={`${API_ADDRESS}/media/images/${doctor_image}`} /></span></div>: ''}
         <p className='certification'></p>
       </div>
-      <div className='col'>
+      <div className='col general-text'>
         <p className='doctor-title'>{`${last_name} ${first_name}`}</p>
         <p>{`${city}, ${state}, ${zip_code}`}</p>
         <p>{practice_website}</p>
@@ -26,7 +26,7 @@ const DoctorItemNEA = ({payment_methods, languages_spoken, type_of_practice, off
       <div className='col'>
         <p className='phone-text'>{practice_phone}</p>
         <p className='email-link'>{practice_email}</p>
-        <p className='website-link'><a href="{practice_website}">{practice_website}</a></p>
+        <a className='website-link' href="{practice_website}">{'Clinical trial site'}</a>
       </div>
     </div>);
 }

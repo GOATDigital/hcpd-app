@@ -21,7 +21,9 @@ const propTypes = {
 class AppContainer extends Component {
 
   componentDidMount() {
-    window.appid_tmp = this.props.config.TCPD_APP_ID;
+    
+    console.log(`App is : ${__APPID__}`);
+    
     const { dispatch } = this.props;
     dispatch(initEnvironment());
     dispatch(initAuth());
@@ -46,11 +48,11 @@ class AppContainer extends Component {
 
     return (
       <div>
-      <div className={this.props.config.TCPD_APP_ID}>
-        {this.props.config.TCPD_APP_ID}
-        <Header head={'Health Care Provider Directory'} subhead={'Find a health care provider with experience treating Eczema'} />
-        {this.renderContent()}
-      </div>
+        <div className={this.props.config.TCPD_APP_ID}>
+          {this.props.config.TCPD_APP_ID}
+          <Header head={'Health Care Provider Directory'} subhead={'Find a health care provider with experience treating Eczema'} />
+          {this.renderContent()}
+        </div>
       </div>
     );
   }

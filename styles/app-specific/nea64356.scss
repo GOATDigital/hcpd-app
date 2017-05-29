@@ -1,18 +1,18 @@
 /* NEA design */
 
 div.nea64356 {
-    background: black;
     .email-link {
-         :hover {
+        &:hover {
             color: #ff9d00;
         }
     }
-    .website-link {
+    a.website-link {
         color: #84a331;
     }
     .doctor-item {
         border: 1px solid #d6eef9;
-        :hover {
+        margin-bottom: 40px;
+        &:hover {
             -webkit-box-shadow: 0 3px 5px 1px rgba(100, 100, 100, 0.3);
             box-shadow: 0 3px 5px 1px rgba(100, 100, 100, 0.3);
         }
@@ -25,8 +25,25 @@ div.nea64356 {
     }
     .doctor-title {
         color: #00478a;
+        font-size: 16px;
     }
     .text-style {
         color: #5c5b5c;
+    }
+    .col.general-text {
+        p {
+            margin-bottom: 20px;
+        }
+    }
+    .FilterBar {
+        p.label {
+            color: #84a331;
+        }
+    }
+    .toggle-filters-text {
+          color: #10c4ee;
+    }
+    .find-provider-text {
+        color: #84a331;
     }
 }
