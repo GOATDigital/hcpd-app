@@ -7,7 +7,7 @@ const DoctorItemNAAF = ({payment_methods, languages_spoken, type_of_practice, of
   let des = `${designation}. ` + first_name + ' ' + last_name;
   return (
     <div className='doctor-item flex'>
-      <div className='row table-details'>
+      <div className='row table-details flex'>
         <div className='col'>
             <strong>{office_managers_name}</strong>
             <p>{state}, {city}</p>

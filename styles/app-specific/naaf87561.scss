@@ -8,6 +8,10 @@ div.naaf87561 {
     .link-button {
         background: #65d1db;
         color: white;
+        border: none;
+        padding: 10px 20px;
+        width: 150px;
+        border-radius: 2px;
     }
     .video-link {
         color: #65d1db;
@@ -15,5 +19,23 @@ div.naaf87561 {
     .doctor-item {
         border-bottom: 1px solid #e3f7f9;
         background: #ffffff;
+    }
+    .DoctorCount, .FilterBar {
+        background: #f7f7f7
+    }
+    .doctorsHeader {
+        background: #fff;
+        .col p{
+            color: #5c5c5c;
+        }
+    }
+    .Select div {
+        border-radius: 3px;
+    }
+    .FilterBar .customFilters {
+        border: none;
+    }
+    p.label {
+        color: #5c5c5c;
     }
 }

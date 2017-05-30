@@ -30,17 +30,14 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('vendor', './public/js/vendor.js', Infinity),
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    })
-  ],
-};
-
-// Optimize the bundle in release (production) mode
-if (!isDebug) {
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    }),
+    // Optimize the bundle in release (production) mode
+    new webpack.optimize.UglifyJsPlugin({
     sourceMap: true,
     compress: {
-      warnings: isVerbose,
-    },
-  }));
-  config.plugins.push(new webpack.optimize.AggressiveMergingPlugin());
-}
+      warnings: true,
+    }
+  }),
+  new webpack.optimize.AggressiveMergingPlugin()
+  ],
+};
