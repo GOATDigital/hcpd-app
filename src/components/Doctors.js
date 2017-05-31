@@ -29,17 +29,22 @@ class Doctors extends Component {
 
   render() {
     const {
+      isNea,
       sticky,
       isMobile,
-      filteredListings,
+      filteredListings
     } = this.props;
+    
     return (
-      <div className={`doctors ${(sticky ? 'sticky' : '')}`} >
+      <div className={`page-bg doctors ${(sticky ? 'sticky' : '')}`} >
       <FilterBarContainer />
-      <DoctorCount count={this.filteredListingsLength()} />
+      {isNea ? <DoctorCount count={this.filteredListingsLength()}/> : ''}
+      <div className={'doctors-wrapper'}>
       <DoctorsHeader isMobile={isMobile}/>
+       {!isNea ? <DoctorCount count={this.filteredListingsLength()} /> : ''}
         <div className="container">
           {this.renderContent()}
+        </div>
         </div>
       </div>
     )

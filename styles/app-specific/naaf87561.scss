@@ -12,9 +12,14 @@ div.naaf87561 {
         padding: 10px 20px;
         width: 150px;
         border-radius: 2px;
+        cursor: pointer;
     }
     .video-link {
-        color: #65d1db;
+        cursor: pointer;
+        color: #5c5c5c;
+        &:hover {
+            color: #65d1db;
+        }
     }
     .doctor-item {
         border-bottom: 1px solid #e3f7f9;
@@ -37,5 +42,15 @@ div.naaf87561 {
     }
     p.label {
         color: #5c5c5c;
+    }
+    .doctor-image {
+        width: 100px;
+        height: 100px;
+        display: block;
+        border-radius: 50px;
+        background: #eee;
+    }
+    .filterToggleButton button {
+        color: #65d1db;
     }
 }

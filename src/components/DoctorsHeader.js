@@ -9,9 +9,9 @@ export default class DoctorsHeader extends Component {
       <div className="doctorsHeader">
         <div className="flex">
         {
-          headers.map((header) => {
+          headers.map((header, index) => {
             return (
-             <div key={header} className={'col'}>
+             <div key={header} className={'col' + ' col-' + index}>
                 <p>{header}</p>
               </div>   
             )})

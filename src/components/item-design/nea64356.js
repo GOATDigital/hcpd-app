@@ -5,12 +5,14 @@ import { API_ADDRESS } from '../../constants/Config';
 
 const DoctorItemNEA = ({payment_methods, languages_spoken, type_of_practice, office_managers_name, practice_website, practice_email, practice_phone, zip_code, state, city, address_2, address_1, country, practice_name, taking_patients, sex, email , designation, last_name, first_name, featured, has_video, doctor_image}) => {
   let des = `${designation}. ` + first_name + ' ' + last_name;
+  //dev
+  doctor_image = true;
   return (
     <div className='doctor-item flex'>
-       <div className='col'>
+       <div className='col col-image'>
           {doctor_image ?<div className='inline doctor-image'>
           <span className='image-wrapper'><img src={`${API_ADDRESS}/media/images/${doctor_image}`} /></span></div>: ''}
-        <p className='certification'></p>
+        <p className='certification'>{'certification and certification'}</p>
       </div>
       <div className='col general-text'>
         <p className='doctor-title'>{`${last_name} ${first_name}`}</p>

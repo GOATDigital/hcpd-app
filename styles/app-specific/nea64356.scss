@@ -1,7 +1,14 @@
 /* NEA design */
 
 div.nea64356 {
+    .col-0 {
+        flex: 0 0 140px;
+    }
+    .col-image {
+        flex: 0 0 140px;
+    }
     .email-link {
+        cursor: pointer;
         &:hover {
             color: #ff9d00;
         }
@@ -12,16 +19,22 @@ div.nea64356 {
     .doctor-item {
         border: 1px solid #d6eef9;
         margin-bottom: 40px;
+        background: #fff;
         &:hover {
             -webkit-box-shadow: 0 3px 5px 1px rgba(100, 100, 100, 0.3);
             box-shadow: 0 3px 5px 1px rgba(100, 100, 100, 0.3);
         }
     }
-    .page-bg {
+    .doctors.page-bg {
         background: #e7e7e7;
+        max-width: 100%;
     }
     .image-wrapper {
         background: #10c4ee;
+        width: 100px;
+        height: 100px;
+        display: block;
+        border-radius: 50px;
     }
     .doctor-title {
         color: #00478a;
@@ -36,6 +49,7 @@ div.nea64356 {
         }
     }
     .FilterBar {
+        background: #fff;
         p.label {
             color: #84a331;
         }
@@ -45,5 +59,20 @@ div.nea64356 {
     }
     .find-provider-text {
         color: #84a331;
+        text-align: left;
+    }
+    .doctorsHeader {
+        border-bottom: none;
+    }
+    .customFilters {
+        border: none;
+    }
+    .DoctorCount {
+        text-align: left;
+        padding: 2em;
+    }
+    .doctors-wrapper {
+        width: 75%;
+        margin: 0 auto;
     }
 }
