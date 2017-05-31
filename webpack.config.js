@@ -32,7 +32,6 @@ module.exports = {
   },
   plugins: [ignore,
         new webpack.DefinePlugin({
-              __DEV__: isDebug,
               '__APPID__': JSON.stringify(process.env.NODE_ENV)//naaf87561 OR nea64356
         }),
         new OpenBrowserPlugin({ url: 'http://localhost:8080/' })

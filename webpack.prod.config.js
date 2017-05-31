@@ -27,9 +27,10 @@ module.exports = {
   plugins: [
     ignore,
     new ExtractTextPlugin('./public/css/main.css'),
-    new webpack.optimize.CommonsChunkPlugin('vendor', './public/js/vendor.js', Infinity),
+    //new webpack.optimize.CommonsChunkPlugin('vendor', './public/js/vendor.js', Infinity),
     new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+         '__APPID__': JSON.stringify('naaf87561')//naaf87561 OR nea64356
     }),
     // Optimize the bundle in release (production) mode
     new webpack.optimize.UglifyJsPlugin({

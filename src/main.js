@@ -22,7 +22,7 @@ const renderApp = (config) => {
 };
 
 const init = (configObject) => {
-  if(__DEV__) console.log('Start Hcpd with config: ', configObject);
+  console.log('Start Hcpd with config: ', configObject);
   renderApp(configObject);
 };
 

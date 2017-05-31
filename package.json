@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "SET NODE_ENV=production node webpack -p --config ./webpack.prod.config.js",
-    "build:naaf": "SET NODE_ENV=naaf87561 node webpack -p --config ./webpack.prod.config.js",
-    "build:nea": "SET NODE_ENV=nea64356 node webpack -p --config ./webpack.prod.config.js",
+    "build:separate": "NODE_ENV=production webpack -p --config ./webpack.prod.config.js",
     "lint": "eslint src",
     "start": "webpack-dev-server --progress --colors --hot --content-base public --config ./webpack.config.js",
     "start:naaf": "NODE_ENV=naaf87561 webpack-dev-server --progress --colors --hot --content-base public --config ./webpack.config.js",
