@@ -6,7 +6,12 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 //https://stackoverflow.com/questions/25112510/how-to-set-environment-variables-from-within-package-json-node-js
 
 const isDebug = global.DEBUG === false ? false : !process.argv.includes('--release');
-//const appToOpen = process.env.NODE_ENV ? process.env.NODE_ENV.replace(/\d/g, '') : ''
+
+if(!process.env.NODE_PROJECT){
+  throw Error('\n\n No app_id specified! Check README.md \n\n');
+}
+
+console.log(`\n\n Running a dev for app_id: ${process.env.NODE_PROJECT} \n\n`);
 
 module.exports = {
   devtool: isDebug ? 'source-map' : false,
@@ -32,9 +37,9 @@ module.exports = {
   },
   plugins: [ignore,
         new webpack.DefinePlugin({
-              '__APPID__': JSON.stringify(process.env.NODE_ENV)//naaf87561 OR nea64356
-        }),
-        new OpenBrowserPlugin({ url: 'http://localhost:8080/' })
+              '__APPID__': JSON.stringify(process.env.NODE_PROJECT)
+        })
+        //,new OpenBrowserPlugin({ url: 'http://localhost:8080/' })
       ],
   devServer: {
     host: '0.0.0.0',

@@ -4,8 +4,12 @@ This repo contains the front end ui for the [Health Care Provider Directory API]
 
 ## To run it locally
 1. `$ npm install`
-2. `$ npm run start`
+2. `$ NODE_PROJECT=XXX npm run start` where XXX is an app_id
 3. visit `http://localhost:8080`
+
+For now there are 2 app_ids available: `naaf87561` or `nea64356`.
+
+### Seperate
 
 ## Testing
 1. For command line tests, `npm run test`
@@ -15,7 +19,7 @@ This repo contains the front end ui for the [Health Care Provider Directory API]
 
 ## Building
 1. Build uses `webpack.prod.config`
-2. To build, `npm run build`
+2. To build, `NODE_PROJECT=XXX npm run build`
 
 ## Reference
 1. [Webpack](https://webpack.github.io/docs)
