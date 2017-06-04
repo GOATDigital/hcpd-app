@@ -26,7 +26,7 @@ class AppContainer extends Component {
     
     const { dispatch } = this.props;
     dispatch(initEnvironment());
-    dispatch(initAuth());
+    //dispatch(initAuth());
     dispatch(initNavigator());
     dispatch(initSettings());
   }

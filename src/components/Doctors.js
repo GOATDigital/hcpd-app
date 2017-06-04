@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import InfiniteScroll from 'react-infinite-scroller';
 
 import DoctorItem from '../components/DoctorItem';
 import Stickify from '../components/Stickify';
@@ -8,7 +8,13 @@ import DoctorsHeader from '../components/DoctorsHeader';
 import DoctorCount from '../components/DoctorCount';
 import NoResults from '../components/NoResults';
 
+let itemsMock = Array(10).fill(111).map((i, index) => {return {key:index, value:i}})
+let calls = 1;
+
 class Doctors extends Component {
+
+  items = itemsMock
+
   componentWillMount() {
   }
 
@@ -26,7 +32,7 @@ class Doctors extends Component {
     const { filteredListings } = this.props
     return filteredListings ? filteredListings.length : 0;
   }
-
+  
   render() {
     const {
       isNea,
@@ -35,9 +41,21 @@ class Doctors extends Component {
       filteredListings
     } = this.props;
     
+    const loadFunc = () => {
+      calls++;
+
+      let ln = this.items.length;
+       this.items.push({
+        key: ln + calls,
+        value: ln  + calls
+      });
+       console.log('loadFunc called', calls, this.items);
+    }
+
     return (
       <div className={`page-bg doctors ${(sticky ? 'sticky' : '')}`} >
       <FilterBarContainer />
+      nea: {isNea}
       {isNea ? <DoctorCount count={this.filteredListingsLength()}/> : ''}
       <div className={'doctors-wrapper'}>
       <DoctorsHeader isMobile={isMobile}/>
@@ -45,6 +63,15 @@ class Doctors extends Component {
         <div className="container">
           {this.renderContent()}
         </div>
+
+        <InfiniteScroll
+            pageStart={0}
+            loadMore={loadFunc}
+            hasMore={true}
+            loader={<div className="loader">Loading ...</div>}>
+            { this.items.map(i => <div key={Math.random(1)}> <NoResults/> {i.value}</div>)}
+        </InfiniteScroll>
+
         </div>
       </div>
     )

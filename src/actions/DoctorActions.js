@@ -25,12 +25,11 @@ export function fetchDoctors(siteID) {
   return dispatch => {
 
     dispatch(fetchDoctorsRequest(siteID))
-    return fetch(`${API_ADDRESS}/api/listings?siteId=${siteID}`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`
-      },
-    })
+    return fetch(`${API_ADDRESS}/api/listings?siteId=${siteID}&input=new&isTakingPatients=true&distance=10`, {
+      method: 'GET'
+    }, {
+  mode : 'no-cors'
+})
       .then(response => response.json())
       .then(json => 
         dispatch(fetchDoctorsSuccess(json))
