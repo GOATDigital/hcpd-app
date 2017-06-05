@@ -23,7 +23,7 @@ const DoctorItemNEA = ({payment_methods, languages_spoken, type_of_practice, off
         <p className=''>{type_of_practice}</p>
       </div>
       <div className='col'>
-        {payment_methods.map(method => <p key={Math.random()} >{method}</p>)}
+        {payment_methods ? payment_methods.map(method => <p key={Math.random()} >{method}</p>) : ''}
       </div>
       <div className='col'>
         <p className='phone-text'>{practice_phone}</p>

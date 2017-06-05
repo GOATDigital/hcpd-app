@@ -48,8 +48,8 @@ class AppContainer extends Component {
 
     return (
       <div>
-        <div className={this.props.config.TCPD_APP_ID}>
-          {this.props.config.TCPD_APP_ID}
+        <div dangerouslySetInnerHTML={{ __html: '<!--  AppID: ' + this.props.config.TCPD_APP_ID + ' -->' }} />
+          <div className={this.props.config.TCPD_APP_ID}>
           <Header head={'Health Care Provider Directory'} subhead={'Find a health care provider with experience treating Eczema'} />
           {this.renderContent()}
         </div>

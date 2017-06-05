@@ -25,7 +25,7 @@ export function fetchDoctors(siteID) {
   return dispatch => {
 
     dispatch(fetchDoctorsRequest(siteID))
-    return fetch(`${API_ADDRESS}/api/listings?siteId=${siteID}&input=new&isTakingPatients=true&distance=10`, {
+    return fetch(`${API_ADDRESS}/api/listing?siteId=${siteID}&input=new&isTakingPatients=true&distance=10&limit=5`, {
       method: 'GET'
     }, {
   mode : 'no-cors'

@@ -55,7 +55,6 @@ class Doctors extends Component {
     return (
       <div className={`page-bg doctors ${(sticky ? 'sticky' : '')}`} >
       <FilterBarContainer />
-      nea: {isNea}
       {isNea ? <DoctorCount count={this.filteredListingsLength()}/> : ''}
       <div className={'doctors-wrapper'}>
       <DoctorsHeader isMobile={isMobile}/>
