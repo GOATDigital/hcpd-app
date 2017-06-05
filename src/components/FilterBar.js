@@ -5,6 +5,7 @@ import LocationSearchContainer from '../containers/LocationSearchContainer';
 import KeyWordSearchContainer from '../containers/KeyWordSearchContainer';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import DoctorCount from '../components/DoctorCount';
 
 import { toggleFilters } from '../actions/FilterActions';
 import { clearFilters } from '../actions/FilterActions';
@@ -14,6 +15,7 @@ class FilterBar extends Component {
   activeFilters = {};
 
   handleChange = (name, values) => {
+//    console.log( this.props, name, values);
     this.props.handleChange(name,values);
   }
 
@@ -114,12 +116,17 @@ class FilterBar extends Component {
     })
   }
 
+  renderProviderText () {
+    return (__APPID__.trim() === 'naaf87561') ? <p className='find-provider-text'>Find a peer mentor near you</p> : <p className='find-provider-text'>Find a Provider Near You</p>;
+  }
+
   render() {
     return (
       <div className="FilterBar">
         <div className="statesFilter">
-          <p className='find-provider-text'>Find a Provider Near You</p>
+          {this.renderProviderText()}
           <LocationSearchContainer />
+          {(__APPID__.trim() === 'naaf87561') ? <DoctorCount count={this.props.count}/> : ''}
           <div className="filterToggleButton">
             {this.renderToggleButton()}
           </div>

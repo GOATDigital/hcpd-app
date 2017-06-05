@@ -27,9 +27,7 @@ export function fetchDoctors(siteID) {
     dispatch(fetchDoctorsRequest(siteID))
     return fetch(`${API_ADDRESS}/api/listing?siteId=${siteID}&input=new&isTakingPatients=true&distance=10&limit=5`, {
       method: 'GET'
-    }, {
-  mode : 'no-cors'
-})
+    }, { mode : 'no-cors'})
       .then(response => response.json())
       .then(json => 
         dispatch(fetchDoctorsSuccess(json))

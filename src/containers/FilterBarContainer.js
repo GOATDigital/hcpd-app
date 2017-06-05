@@ -16,12 +16,14 @@ class FilterBarConainer extends Component {
     } else {
       this.activeFilters[name] = values.id;
     }
+    console.log('handleChange',  this.activeFilters);
     dispatch(parseFilters(this.activeFilters));
   }
 
   render() {
     const { isMobile } = this.props;
     const { settings } = this.props;
+    //console.log(this.props)
     return (
       <FilterBar {...this.props} handleChange={this.handleChange} />
     )

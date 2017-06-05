@@ -43,6 +43,13 @@ class AppContainer extends Component {
         return null;
     }
   }
+  renderTextHeader() {
+    
+    const header_naaf = <Header head={'Young Adult Mentor Program'} subhead={'Find a peer mentor with experience with alopecia areata'} />;
+    const header_nea = <Header head={'Health Care Provider Directory'} subhead={'Find a health care provider with experience treating Eczema'} />;
+    
+    return (__APPID__.trim() === 'naaf87561') ? header_naaf : header_nea;
+  }
   render() {
     const { height, isMobile, width } = this.props;
 
@@ -50,7 +57,7 @@ class AppContainer extends Component {
       <div>
         <div dangerouslySetInnerHTML={{ __html: '<!--  AppID: ' + this.props.config.TCPD_APP_ID + ' -->' }} />
           <div className={this.props.config.TCPD_APP_ID}>
-          <Header head={'Health Care Provider Directory'} subhead={'Find a health care provider with experience treating Eczema'} />
+          {this.renderTextHeader()}
           {this.renderContent()}
         </div>
       </div>

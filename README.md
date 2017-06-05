@@ -9,7 +9,6 @@ This repo contains the front end ui for the [Health Care Provider Directory API]
 
 For now there are 2 app_ids available: `naaf87561` or `nea64356`.
 
-app web url - https://hcpd-cloud-shershen08.c9users.io:8080/api/listing?input=new&isTakingPatients=true&distance=10
 editor app url - https://hcpd-backend.herokuapp.com/api/listing?input=new&isTakingPatients=true&distance=10
 
 ### Seperate

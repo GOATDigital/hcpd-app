@@ -109,12 +109,10 @@ function mapStateToProps(state) {
   const { listings, loading, error } = doctors;
   const { radius, lat, long } = location;
   const { sortBy } = sort;
-      //dev
-  const isNea = false;//(__APPID__ !== 'naaf87561');
+  
   return {
     authed,
     isMobile,
-    isNea,
     activeKeyWordFilters,
     filters,
     filteredListings: getFilteredListings(listings, activeFilters.filters, filters, location, activeKeyWordFilters, settings, sortBy),

@@ -2,6 +2,33 @@
 
 div.naaf87561 {
     color:#5c5b5c;
+    font-family: LucidaGrande, "Lucida Grande";
+    /* Header */
+    h1 {
+        font-size: 48;
+        font-weight: normal;
+        color: rgb(74, 74, 74);
+    }
+    h2 {
+        font-size: 30;
+        font-weight: normal;
+        color: rgb(101, 209, 218);
+    }
+    .header {
+        text-align: left;
+        background: #F7F7F7;
+          max-width: 75%;
+        margin: auto;
+        min-width: 960px;
+        padding-bottom: 0;
+    }
+    .header-wrapper {
+        padding: 20px;
+    }
+    .find-provider-text, .filterToggleButton .button {
+        text-align: left;
+        text-transform: none;
+    }
     .doctor-item {
         background: red;
     }
@@ -26,7 +53,14 @@ div.naaf87561 {
         background: #ffffff;
     }
     .DoctorCount, .FilterBar {
-        background: #f7f7f7
+        background: #f7f7f7;
+        text-align: left;
+        padding: 13px;
+    }
+    .DoctorCount p {
+        text-align: left;
+        text-transform: none;
+        margin-bottom: 0;
     }
     .doctorsHeader {
         background: #fff;
@@ -34,8 +68,9 @@ div.naaf87561 {
             color: #5c5c5c;
         }
     }
-    .Select div {
-        border-radius: 3px;
+    .Select-control {
+        border-radius: 0px;
+        border:1px solid #979797;
     }
     .FilterBar .customFilters {
         border: none;
@@ -52,5 +87,6 @@ div.naaf87561 {
     }
     .filterToggleButton button {
         color: #65d1db;
+        font-family: LucidaGrande, "Lucida Grande";
     }
 }

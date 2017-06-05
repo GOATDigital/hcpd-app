@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes';
+import { fetchDoctor } from './DoctorActions';
 
 import { values, flatten } from 'lodash';
 
@@ -10,7 +11,11 @@ function updateFilters(filters) {
   }
 }
 
+
 export default function parseFilters(filters) {
+
+  console.log(filters);
+  
   return dispatch => {
     dispatch(updateFilters(flatten(values(filters))));
   }

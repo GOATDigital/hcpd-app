@@ -35,7 +35,6 @@ class Doctors extends Component {
   
   render() {
     const {
-      isNea,
       sticky,
       isMobile,
       filteredListings
@@ -52,13 +51,14 @@ class Doctors extends Component {
        console.log('loadFunc called', calls, this.items);
     }
 
+    const isNaaf = (__APPID__.trim() === 'naaf87561');
+
     return (
       <div className={`page-bg doctors ${(sticky ? 'sticky' : '')}`} >
-      <FilterBarContainer />
-      {isNea ? <DoctorCount count={this.filteredListingsLength()}/> : ''}
+      <FilterBarContainer count={this.filteredListingsLength()} />
       <div className={'doctors-wrapper'}>
       <DoctorsHeader isMobile={isMobile}/>
-       {!isNea ? <DoctorCount count={this.filteredListingsLength()} /> : ''}
+       {!isNaaf ? <DoctorCount count={this.filteredListingsLength()} /> : ''}
         <div className="container">
           {this.renderContent()}
         </div>
