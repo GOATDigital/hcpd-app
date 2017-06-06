@@ -28,12 +28,12 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel', exclude: [nodeModulesDir] },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss!sass') },
+      { test: /\.scss$/,  loaders: ['style', 'css', 'postcss', 'sass']}, //loader: ExtractTextPlugin.extract('style', 'css!postcss!sass') }
     ],
   },
   plugins: [
     ignore,
-    new ExtractTextPlugin('./build/css/main.css'),
+    //new ExtractTextPlugin('./build/css/main.css'),
     //new webpack.optimize.CommonsChunkPlugin('vendor', './build/js/vendor.js', Infinity),
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),

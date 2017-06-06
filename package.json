@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "SET NODE_ENV=production && webpack -p --config ./webpack.prod.config.js",
+    "build": "NODE_ENV=production && webpack -p --config ./webpack.prod.config.js",
     "lint": "eslint src",
     "start": "webpack-dev-server --progress --colors --hot --content-base public --config ./webpack.config.js",
     "test": "mocha --compilers js:babel-register --recursive"
