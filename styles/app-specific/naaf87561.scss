@@ -3,6 +3,40 @@
 div.naaf87561 {
     color:#5c5b5c;
     font-family: LucidaGrande, "Lucida Grande";
+    /* table header columns */
+    .col-0 {
+     p {
+         text-align: center;
+     }
+    }
+    .col-1 {
+       flex: 0 0 17%;
+    }
+    .col-2 {
+      flex: 0 0 17%;
+    }
+    .col-3 {
+      flex: 0 0 17%;
+    }
+    .col-4 {
+      flex: 0 0 17%;
+      p {
+         text-align: center;
+     }
+    }
+    /* table columns */
+    .col-main-1 {
+     flex: 0 0 15%;
+    }
+    .col-main-2 {
+     flex: 0 0 55%;
+    }
+    .col-main-3 {
+     flex: 0 0 15%;
+    }
+    .col-main-4 {
+       flex: 0 0 15%;
+    }
     /* Header */
     h1 {
         font-size: 48;
@@ -17,17 +51,23 @@ div.naaf87561 {
     .header {
         text-align: left;
         background: #F7F7F7;
-          max-width: 75%;
+        max-width: 75%;
         margin: auto;
         min-width: 960px;
         padding-bottom: 0;
     }
     .header-wrapper {
-        padding: 20px;
+        padding: 20px 25px;
     }
     .find-provider-text, .filterToggleButton .button {
         text-align: left;
         text-transform: none;
+            padding: 0 15px;
+    }
+    .filterToggleButton button {
+        color: #65d1db;
+        font-family: LucidaGrande, "Lucida Grande";
+        padding: 10px 0px;
     }
     .doctor-item {
         background: red;
@@ -40,10 +80,19 @@ div.naaf87561 {
         width: 150px;
         border-radius: 2px;
         cursor: pointer;
+        font-family: LucidaGrande, "Lucida Grande";
+    }
+    .designation-block {
+        max-width: 60%;
     }
     .video-link {
+        width: 90px;
         cursor: pointer;
-        color: #5c5c5c;
+        font-size: 14px;
+        display: block;
+        text-align: center;
+        font-weight: 400;
+        color: rgb(155, 155, 155);
         &:hover {
             color: #65d1db;
         }
@@ -55,7 +104,7 @@ div.naaf87561 {
     .DoctorCount, .FilterBar {
         background: #f7f7f7;
         text-align: left;
-        padding: 13px;
+        padding: 15px;
     }
     .DoctorCount p {
         text-align: left;
@@ -85,8 +134,12 @@ div.naaf87561 {
         border-radius: 50px;
         background: #eee;
     }
-    .filterToggleButton button {
-        color: #65d1db;
-        font-family: LucidaGrande, "Lucida Grande";
+  
+    .name-line {
+        font-weight: 400;
+    }
+    .address-line {
+        font-weight: 400;
+        color: rgb(155, 155, 155);
     }
 }
