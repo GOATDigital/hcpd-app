@@ -35,7 +35,7 @@ class AppContainer extends Component {
     const { path } = this.props;
     switch (path[0]) {
       case 'listings':
-        return <DoctorsContainer />;
+        return <DoctorsContainer loading={true}/>;
       case 'me':
         return null;
         // return <MeContainer />;

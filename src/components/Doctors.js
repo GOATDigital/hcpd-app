@@ -7,6 +7,7 @@ import FilterBarContainer from '../containers/FilterBarContainer';
 import DoctorsHeader from '../components/DoctorsHeader';
 import DoctorCount from '../components/DoctorCount';
 import NoResults from '../components/NoResults';
+import LoadingWheel from './LoadingWheel';
 
 let itemsMock = Array(10).fill(111).map((i, index) => {return {key:index, value:i}})
 let calls = 1;
@@ -19,12 +20,17 @@ class Doctors extends Component {
   }
 
   renderContent() {
+    console.log(JSON.stringify(this.props));
     if (this.props.filteredListings) {
       return this.props.filteredListings.map(listing => <DoctorItem key={Math.random(1)} { ...listing }/>)
     }
     else {
-      // NOTE: MAKE ERROR HELPER AND INSERT HERE
-      return <NoResults/>
+      if(this.props.loading){
+          return <LoadingWheel />;
+      } else {
+          return <NoResults/>;
+      }
+
     }
   }
 
@@ -40,16 +46,7 @@ class Doctors extends Component {
       filteredListings
     } = this.props;
     
-    const loadFunc = () => {
-      calls++;
 
-      let ln = this.items.length;
-       this.items.push({
-        key: ln + calls,
-        value: ln  + calls
-      });
-       console.log('loadFunc called', calls, this.items);
-    }
 
     const isNaaf = (__APPID__.trim() === 'naaf87561');
 
@@ -62,20 +59,31 @@ class Doctors extends Component {
         <div className="container">
           {this.renderContent()}
         </div>
-
-        <InfiniteScroll
-            pageStart={0}
-            loadMore={loadFunc}
-            hasMore={true}
-            loader={<div className="loader">Loading ...</div>}>
-            { this.items.map(i => <div key={Math.random(1)}> <NoResults/> {i.value}</div>)}
-        </InfiniteScroll>
-
         </div>
       </div>
     )
   }
 }
+
+
+    /*const loadFunc = () => {
+      calls++;
+
+      let ln = this.items.length;
+       this.items.push({
+        key: ln + calls,
+        value: ln  + calls
+      });
+       console.log('loadFunc called', calls, this.items);
+    }
+
+   <InfiniteScroll
+            pageStart={0}
+            loadMore={loadFunc}
+            hasMore={true}
+            loader={<div className="loader">Loading ...</div>}>
+            { this.items.map(i => <div key={Math.random(1)}> <NoResults/> {i.value}</div>)}
+        </InfiniteScroll>*/
 
 export default Stickify(Doctors, 50);
 
