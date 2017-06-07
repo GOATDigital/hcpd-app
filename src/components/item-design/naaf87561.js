@@ -3,21 +3,42 @@
 import React from 'react';
 import { API_ADDRESS, STATIC_ASSETS } from '../../constants/Config';
 
-const DoctorItemNAAF = ({payment_methods, languages_spoken, age, type_of_practice, office_managers_name, practice_website, practice_email, practice_phone, zip_code, state, city, address_2, address_1, country, practice_name, taking_patients, sex, email , designation, last_name, first_name, featured, has_video, doctor_image, will_meet_with}) => {
-  first_name = 'Sarah';
-  last_name ='Guenzburger';
-  sex = 'Female';
-  type_of_practice = 'Aopecia universalis';
-  age = 20;
+const has_types = 
+  [{
+    code: "Has_AA_patchy_loss__c",
+    title: "Alopecia Areata"
+  },{
+    code:"Has_AT__c",
+    title:"Alopecia Universalis"
+  },{
+    code:"Has_AU__c",
+    title:"Alopecia Areata - Patchy"
+  },{
+    code:"Has_Alopecia__c",
+    title:"Alopecia Totalis"
+  }];
+
+const DoctorItemNAAF = (data) => {
+
+  let payment_methods, languages_spoken, age, type_of_practice, office_managers_name, 
+  practice_website, practice_email, practice_phone, zip_code, state, city, address_2, 
+  address_1, country, practice_name, taking_patients, sex, email , designation, last_name, 
+  first_name, has_video, doctor_image, will_meet_with;
+
+  has_types.forEach(t => {
+    if(data[t.code]){
+      type_of_practice.push(t.title);
+    }
+  });
+  first_name = data.FirstName;
+  last_name = data.LastName;
+  sex = data.Gender__c;
+  age = data.Birthdate;
   has_video = true;
   doctor_image = true;
-  address_2 = 'Holmdel, NJ';
-  designation = `Hi! My name is Sarah and I grew up in Holmdel, New Jersey. I studied exercise
-science at the University of Connecticut, and am now pursuing my doctorate
-in physical therapy at George Washington University in Washington DC.
-Watch video
-Just after turning 6 years old`;
-will_meet_with = 'Parents Children';
+  address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
+  designation = data.Description;
+  will_meet_with = (data.Mentor_Kids__c ? 'Children' : '') + ' ' + (data.Mentor_Parents__c ? 'Parents' : '');
 
   return (
     <div className='doctor-item flex'>
@@ -35,7 +56,6 @@ will_meet_with = 'Parents Children';
                 {/*sub col 1*/}
                 <div className='col'>
                   <p className='name-line'>{first_name} {last_name}</p>
-                  {/*<p className='name-line'>{state}, {city}</p>*/}
                   <p className='address-line'>{address_2}</p>
                 </div>
                 {/*sub col 2*/}

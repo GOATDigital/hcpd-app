@@ -16,7 +16,6 @@ class FilterBarConainer extends Component {
     } else {
       this.activeFilters[name] = values.id;
     }
-    console.log('handleChange',  this.activeFilters);
     dispatch(parseFilters(this.activeFilters));
   }
 

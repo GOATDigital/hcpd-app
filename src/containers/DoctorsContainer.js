@@ -16,6 +16,12 @@ class DoctorsContainer extends Component {
     dispatch(fetchDoctorsIfNeeded(CLIENT_ID))
   }
 
+  componentWillUpdate(nextProps, nextState){
+    console.log(nextProps, nextState)
+    return false;
+
+  }
+
   render() {
     return <Doctors {...this.props} />;
   }

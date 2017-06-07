@@ -17,7 +17,8 @@ export default function parseFilters(filters) {
   console.log(filters);
   
   return dispatch => {
-    dispatch(updateFilters(flatten(values(filters))));
+    let tmp = updateFilters(flatten(values(filters)));
+    dispatch(tmp);
   }
 }
 

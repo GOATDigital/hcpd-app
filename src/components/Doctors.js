@@ -19,8 +19,9 @@ class Doctors extends Component {
   componentWillMount() {
   }
 
+
   renderContent() {
-    console.log(JSON.stringify(this.props));
+    //console.log(JSON.stringify(this.props));
     if (this.props.filteredListings) {
       return this.props.filteredListings.map(listing => <DoctorItem key={Math.random(1)} { ...listing }/>)
     }

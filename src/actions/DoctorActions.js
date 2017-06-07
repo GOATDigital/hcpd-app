@@ -21,11 +21,13 @@ function fetchDoctorsSuccess(json) {
 }
 
 export function fetchDoctors(siteID) {
+  
+  const START_PAGE = '';
 
   return dispatch => {
 
     dispatch(fetchDoctorsRequest(siteID))
-    return fetch(`${API_ADDRESS}/api/listing?siteId=${siteID}&input=new&isTakingPatients=true&distance=10&limit=5`, {
+    return fetch(`${API_ADDRESS}/api/listings?siteId=${siteID}&input=new&isTakingPatients=true&distance=10&page=${START_PAGE}`, {
       method: 'GET'
     }, { mode : 'no-cors'})
       .then(response => response.json())
@@ -36,10 +38,11 @@ export function fetchDoctors(siteID) {
 }
 
 function shouldFetchDoctors(state, siteID) {
+  //debugger;
   const listings = state.doctors.listings
   if (!listings) {
     return true
-  } else if (doctors.isFetching) {
+  } else if (doctors.loading) {
     return false
   } else {
     return doctors.didInvalidate
