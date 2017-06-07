@@ -20,24 +20,24 @@ const has_types =
 
 const DoctorItemNAAF = (data) => {
 
-  let payment_methods, languages_spoken, age, type_of_practice, office_managers_name, 
+  let payment_methods, languages_spoken, age, type_of_practice = [], office_managers_name, 
   practice_website, practice_email, practice_phone, zip_code, state, city, address_2, 
   address_1, country, practice_name, taking_patients, sex, email , designation, last_name, 
   first_name, has_video, doctor_image, will_meet_with;
 
   has_types.forEach(t => {
     if(data[t.code]){
-      type_of_practice.push(t.title);
+      type_of_practice.push(t.title + ', ');
     }
   });
   first_name = data.FirstName;
   last_name = data.LastName;
   sex = data.Gender__c;
-  age = data.Birthdate;
+  age = new Date().getFullYear() - new Date(data.Birthdate).getFullYear();
   has_video = true;
   doctor_image = true;
   address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
-  designation = data.Description;
+  designation = data.Description || data.Bio__c;
   will_meet_with = (data.Mentor_Kids__c ? 'Children' : '') + ' ' + (data.Mentor_Parents__c ? 'Parents' : '');
 
   return (
