@@ -1,8 +1,8 @@
 /* NAAF design */
-
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 div.naaf87561 {
     color:#5c5b5c;
-    font-family: LucidaGrande, "Lucida Grande";
+    font-family: 'Roboto', sans-serif;
     /* table header columns */
     .col-0 {
      p {
@@ -66,7 +66,7 @@ div.naaf87561 {
     }
     .filterToggleButton button {
         color: #65d1db;
-        font-family: LucidaGrande, "Lucida Grande";
+        font-family: 'Roboto', sans-serif;
         padding: 10px 0px;
     }
     .doctor-item {
@@ -80,7 +80,7 @@ div.naaf87561 {
         width: 150px;
         border-radius: 2px;
         cursor: pointer;
-        font-family: LucidaGrande, "Lucida Grande";
+        font-family: 'Roboto', sans-serif;
     }
     .designation-block {
         max-width: 70%;
