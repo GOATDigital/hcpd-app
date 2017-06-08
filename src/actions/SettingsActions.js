@@ -1,74 +1,74 @@
 import * as types from '../constants/ActionTypes';
 
 const filters = [
-  {
-    id: 1,
-    name: 'Payment Methods',
+   {
+    name: 'Age',
     type: 'Checkbox',
     options: [
       {
-        id: 1,
-        value: 'Cash/Credit',
-        label: 'Cash/Credit',
+        id: 8,
+        value: '2030',
+        label: '20-30',
       },
       {
-        id: 2,
-        value: 'Medicare',
-        label: 'Medicare',
+        id: 9,
+        value: '3040',
+        label: '30-40',
       },
       {
-        id: 3,
-        value: 'Medicaid',
-        label: 'Medicaid',
-      },
-      {
-        id: 4,
-        value: 'Private insurance',
-        label: 'Private insurance',
-      },
-      {
-        id: 5,
-        value: 'Sliding scale',
-        label: 'Sliding scale',
+        id: 10,
+        value: '4050',
+        label: '40-50',
       }
     ]
   },
   {
     id: 2,
-    name: 'Languages Spoken',
+    name: 'Gender',
     type: 'Select',
     options: [
       {
         id: 6,
-        value: 'english',
-        label: 'English',
+        value: 'male',
+        label: 'Male',
       },
       {
         id: 7,
-        value: 'spanish',
-        label: 'Spanish',
+        value: 'female',
+        label: 'Female',
       }
     ]
   },
-  {
-    name: 'Taking Patients',
-    type: 'Select',
+ {
+    id: 1,
+    name: 'Type of Alopecia',
+    type: 'Checkbox',
     options: [
       {
-        id: 8,
-        value: 'yes',
-        label: 'Yes',
+        id: 1,
+        value: 'Alopecia Areata',
+        label: 'Alopecia Areata',
       },
       {
-        id: 9,
-        value: 'no',
-        label: 'No',
+        id: 2,
+        value: 'Alopecia Universalis',
+        label: 'Alopecia Universalis',
+      },
+      {
+        id: 3,
+        value: 'Alopecia Areata - Patchy',
+        label: 'Alopecia Areata - Patchy',
+      },
+      {
+        id: 4,
+        value: 'Alopecia Totalis',
+        label: 'Alopecia Totalis',
       }
     ]
   },
   {
     id: 4,
-    name: 'Doctor or Practice Search',
+    name: 'Keyword',
     type: 'Keyword',
     fields: ['first_name', 'last_name', 'practice_name'],
   }

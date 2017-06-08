@@ -1,35 +1,30 @@
 import * as types from '../constants/ActionTypes';
-
+			
 const initialState = {
  filters: [
   {
-    name: 'Payment Methods',
+    name: 'Type of Alopecia',
     type: 'Checkbox',
     options: [
       {
         id: 1,
-        value: 'Cash/Credit',
-        label: 'Cash/Credit',
+        value: 'Alopecia Areata',
+        label: 'Alopecia Areata',
       },
       {
         id: 2,
-        value: 'Medicare',
-        label: 'Medicare',
+        value: 'Alopecia Universalis',
+        label: 'Alopecia Universalis',
       },
       {
         id: 3,
-        value: 'Medicaid',
-        label: 'Medicaid',
+        value: 'Alopecia Areata - Patchy',
+        label: 'Alopecia Areata - Patchy',
       },
       {
         id: 4,
-        value: 'Private Insurance',
-        label: 'Private Insurance',
-      },
-      {
-        id: 5,
-        value: 'Sliding Scale',
-        label: 'Sliding Scale',
+        value: 'Alopecia Totalis',
+        label: 'Alopecia Totalis',
       }
     ]
   },

@@ -118,12 +118,17 @@ div.naaf87561 {
         }
     }
     .Select-control {
-        border-radius: 0px;
-        border:1px solid #979797;
+        border-radius: 3px;
+        border:1px solid #D3D3D3;
     }
     .FilterBar .customFilters {
         border: none;
+        padding: 15px 10px;
+        .space {
+            padding: 1rem 5px;
+        }
     }
+   
     p.label {
         color: #5c5c5c;
     }

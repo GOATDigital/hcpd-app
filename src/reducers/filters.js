@@ -2,29 +2,16 @@ import * as types from '../constants/ActionTypes';
 
 const initialState = {
   1: {
-      value: 'Cash/Credit',
-      name: 'payment_methods',
-    },
+    name: 'type_ofalopecia',
+    value: 'Alopecia Areata',
+    active: false
+  },
   2: {
-      value: 'Medicare',
-      name: 'payment_methods',
-    },
-  3: {
-      value: 'Medicaid',
-      name: 'payment_methods',
-    },
-  4: {
-      value: 'Private Insurance',
-      name: 'payment_methods',
-    },
-  5: {
-      value: 'Sliding Scale',
-      name: 'payment_methods',
-    },
-  6: {
-      value: 'english',
-      name: 'languages_spoken',
-    },
+    name: 'type_ofalopecia',
+    value: 'Alopecia Universalis',
+    active: false
+  },
+  
   7: {
       value: 'spanish',
       name: 'languages_spoken',

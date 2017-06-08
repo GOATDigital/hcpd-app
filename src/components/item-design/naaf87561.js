@@ -20,7 +20,7 @@ const has_types =
 
 const DoctorItemNAAF = (data) => {
 
-  let payment_methods, languages_spoken, age, type_of_practice = [], office_managers_name, 
+  let age, type_of_practice = [], office_managers_name, 
   practice_website, practice_email, practice_phone, zip_code, state, city, address_2, 
   address_1, country, practice_name, taking_patients, sex, email , designation, last_name, 
   first_name, has_video, doctor_image, will_meet_with;
