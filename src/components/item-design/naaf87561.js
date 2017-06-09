@@ -35,7 +35,7 @@ const DoctorItemNAAF = (data) => {
   sex = data.Gender__c;
   age = new Date().getFullYear() - new Date(data.Birthdate).getFullYear();
   has_video = true;
-  doctor_image = true;
+  doctor_image = 'https://randomuser.me/api/portraits/women/61.jpg';
   address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
   designation = data.Description || data.Bio__c;
   will_meet_with = (data.Mentor_Kids__c ? 'Children' : '') + ' ' + (data.Mentor_Parents__c ? 'Parents' : '');
@@ -45,9 +45,10 @@ const DoctorItemNAAF = (data) => {
         {/*1 column*/}
         <div className='col col-main-1'>
         {doctor_image ? <div className='inline doctor-image'>
-          <span className='image-wrapper'><img src={`${API_ADDRESS}/media/images/${doctor_image}`} /></span>
+          <span className='image-wrapper'><img src={`${doctor_image}`} /></span>
+          {/*${API_ADDRESS}/media/images/*/}
         </div>: ''}
-        {has_video ? <a href={has_video} target="_blank" className='video-link'><img src={`${STATIC_ASSETS}media/Play.svg`} /> Click to see video</a> : ''}
+        {has_video ? <a href={has_video} target="_blank" className='video-link'><img src={`${STATIC_ASSETS}media/Play.svg`} /> Watch video</a> : ''}
        </div>
        {/*colum 2*/}
        <div className='col col-main-2'>

@@ -1,89 +1,99 @@
 /* NAAF design */
+
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 div.naaf87561 {
-    color:#5c5b5c;
+    color: #5c5b5c;
     font-family: 'Roboto', sans-serif;
     /* table header columns */
     .col-0 {
-     p {
-         text-align: center;
-     }
+        p {
+            text-align: center;
+        }
     }
-    .col-1, .col-2, .col-3 {
-      flex: 0 0 15%;
-      text-align: center;
+    .col-1,
+    .col-2,
+    .col-3 {
+        flex: 0 0 15%;
+        text-align: center;
     }
     .col-4 {
-      flex: 0 0 17%;
-      p {
-         text-align: center;
-     }
+        flex: 0 0 17%;
+        p {
+            text-align: center;
+        }
     }
     /* table columns */
     .col-main-1 {
-     flex: 0 0 15%;
+        flex: 0 0 15%;
     }
     .col-main-2 {
-     flex: 0 0 55%;
+        flex: 0 0 55%;
     }
     .col-main-3 {
-     flex: 0 0 15%;
+        flex: 0 0 15%;
     }
     .col-main-4 {
-       flex: 0 0 15%;
+        flex: 0 0 15%;
     }
     .doctorsHeader {
         background: #fff;
         font-weight: 700;
-        .col p{
+        .col p {
             color: #5c5c5c;
         }
     }
     .col-sub-1 {
         flex: 0 0 50%;
-    },
-    .col-sub-2, .col-sub-3 {
+        text-align: left;
+    }
+    ,
+    .col-sub-2,
+    .col-sub-3 {
         flex: 0 0 25%;
     }
     /* Header */
     h1 {
-        font-size: 48;
+        font-size: 48px;
         font-weight: normal;
         color: rgb(74, 74, 74);
+        text-transform: uppercase;
     }
     h2 {
-        font-size: 30;
+        font-size: 30px;
         font-weight: normal;
         color: rgb(101, 209, 218);
+    }
+    .doctors {
+        max-width: 1400px;
     }
     .header {
         text-align: left;
         background: #F7F7F7;
-        max-width: 75%;
+        max-width: 1400px;
         margin: auto;
         min-width: 960px;
         padding-bottom: 0;
         @media (max-width: 960px) {
-          min-width: 100%;
+            min-width: 100%;
         }
     }
     .header-wrapper {
         padding: 20px 25px;
     }
-
-
-    .find-provider-text, .filterToggleButton .button {
+    .find-provider-text {
+        font-size: 24px;
+    }
+    .find-provider-text,
+    .filterToggleButton .button {
         text-align: left;
         text-transform: none;
-            padding: 0 15px;
+        padding: 0 15px;
+        font-size: 14px;
     }
     .filterToggleButton button {
         color: #65d1db;
         font-family: 'Roboto', sans-serif;
         padding: 10px 0px;
-    }
-    .doctor-item {
-        background: red;
     }
     .link-button {
         background: #65d1db;
@@ -91,21 +101,24 @@ div.naaf87561 {
         border: none;
         padding: 10px 20px;
         width: 150px;
-        border-radius: 2px;
+        border-radius: 5px;
         cursor: pointer;
         font-family: 'Roboto', sans-serif;
     }
     .designation-block {
-        max-width: 70%;
+        max-width: 80%;
+        text-align: left;
+        line-height: 26px;
     }
     .video-link {
-        width: 90px;
+        width: 130px;
         cursor: pointer;
         font-size: 14px;
         display: block;
         text-align: center;
         font-weight: 400;
         color: rgb(155, 155, 155);
+        margin-top: 20px;
         &:hover {
             color: #65d1db;
         }
@@ -113,8 +126,12 @@ div.naaf87561 {
     .doctor-item {
         border-bottom: 1px solid #e3f7f9;
         background: #ffffff;
+        p {
+            font-size: 16px;
+        }
     }
-    .DoctorCount, .FilterBar {
+    .DoctorCount,
+    .FilterBar {
         background: #f7f7f7;
         text-align: left;
         padding: 15px;
@@ -123,11 +140,39 @@ div.naaf87561 {
         text-align: left;
         text-transform: none;
         margin-bottom: 0;
+        font-size: 16px;
     }
-
     .Select-control {
-        border-radius: 3px;
-        border:1px solid #D3D3D3;
+        border-radius: 4px;
+        border: 1px solid #D3D3D3;
+        height: 50px;
+        font-size: 16px;
+    }
+    .Select-placeholder {
+        line-height: 50px;
+        font-size: 16px;
+    }
+    .Select-value {
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .Select-value-label {
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .has-value.Select--single {
+        .Select-control {
+            .Select-value {
+                .Select-value-label {
+                    line-height: 50px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .KeyWordSearchContainer input {
+        height: 50px;
+        font-size: 16px;
     }
     .FilterBar .customFilters {
         border: none;
@@ -136,18 +181,18 @@ div.naaf87561 {
             padding: 1rem 5px;
         }
     }
-   
     p.label {
         color: #5c5c5c;
+        font-size: 14px;
     }
     .doctor-image {
-        width: 100px;
-        height: 100px;
+        width: 130px;
+        height: 130px;
         display: block;
-        border-radius: 50px;
+        border-radius: 70px;
         background: #eee;
+        overflow: hidden;
     }
-  
     .name-line {
         font-weight: 400;
     }
