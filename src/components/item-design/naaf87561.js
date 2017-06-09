@@ -54,16 +54,16 @@ const DoctorItemNAAF = (data) => {
 
             <div className='row table-details flex'>
                 {/*sub col 1*/}
-                <div className='col'>
+                <div className='col-sub-1'>
                   <p className='name-line'>{first_name} {last_name}</p>
                   <p className='address-line'>{address_2}</p>
                 </div>
                 {/*sub col 2*/}
-                <div className='col'>
+                <div className='col-sub-2'>
                   <p>{age}, {sex}</p>
                 </div>
                 {/*sub col 3*/}
-                <div className='col'>
+                <div className='col-sub-3'>
                   <p>{will_meet_with}</p>
                 </div>
             </div>

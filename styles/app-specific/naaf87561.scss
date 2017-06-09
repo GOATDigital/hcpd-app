@@ -9,14 +9,9 @@ div.naaf87561 {
          text-align: center;
      }
     }
-    .col-1 {
-       flex: 0 0 17%;
-    }
-    .col-2 {
-      flex: 0 0 17%;
-    }
-    .col-3 {
-      flex: 0 0 17%;
+    .col-1, .col-2, .col-3 {
+      flex: 0 0 15%;
+      text-align: center;
     }
     .col-4 {
       flex: 0 0 17%;
@@ -37,6 +32,19 @@ div.naaf87561 {
     .col-main-4 {
        flex: 0 0 15%;
     }
+    .doctorsHeader {
+        background: #fff;
+        font-weight: 700;
+        .col p{
+            color: #5c5c5c;
+        }
+    }
+    .col-sub-1 {
+        flex: 0 0 50%;
+    },
+    .col-sub-2, .col-sub-3 {
+        flex: 0 0 25%;
+    }
     /* Header */
     h1 {
         font-size: 48;
@@ -55,10 +63,15 @@ div.naaf87561 {
         margin: auto;
         min-width: 960px;
         padding-bottom: 0;
+        @media (max-width: 960px) {
+          min-width: 100%;
+        }
     }
     .header-wrapper {
         padding: 20px 25px;
     }
+
+
     .find-provider-text, .filterToggleButton .button {
         text-align: left;
         text-transform: none;
@@ -111,12 +124,7 @@ div.naaf87561 {
         text-transform: none;
         margin-bottom: 0;
     }
-    .doctorsHeader {
-        background: #fff;
-        .col p{
-            color: #5c5c5c;
-        }
-    }
+
     .Select-control {
         border-radius: 3px;
         border:1px solid #D3D3D3;
