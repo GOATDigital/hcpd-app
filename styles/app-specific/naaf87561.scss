@@ -22,6 +22,20 @@ div.naaf87561 {
             text-align: center;
         }
     }
+    .geosuggest {
+        flex: 0 0 60%;
+    padding: 0rem 5px;
+        .geosuggest__input {
+            border-radius: 4px;
+            border: 1px solid #D3D3D3;
+            height: 50px;
+            font-size: 16px;
+            width: 100%;
+            padding: 0 5px;
+            color: #aaa;
+        }
+    }
+
     /* table columns */
     .col-main-1 {
         flex: 0 0 15%;
@@ -119,9 +133,15 @@ div.naaf87561 {
         font-weight: 400;
         color: rgb(155, 155, 155);
         margin-top: 20px;
-        line-height: 190%;
+        line-height: 200%;
         &:hover {
             color: #65d1db;
+             svg g#Mobile_Close_Filter {
+                stroke: #65d1db;
+            }
+        }   
+        span {
+            float: left;
         }
     }
     .doctor-item {
@@ -194,6 +214,11 @@ div.naaf87561 {
         background: #eee;
         overflow: hidden;
     }
+    .image-wrapper {
+        img {
+            width: 100%;
+        }
+    }
     .name-line {
         font-weight: 400;
     }
@@ -232,7 +257,8 @@ div.naaf87561 {
             min-width: 100px;
         }
         .col-mobile-2 {
-                text-align: left;
+            text-align: left;
+            padding: .5em 0;
         }
         .designation-block {
             max-width: 100%;
