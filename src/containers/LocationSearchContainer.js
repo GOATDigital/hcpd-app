@@ -7,6 +7,8 @@ import Select from 'react-select';
 
 import fetch from 'isomorphic-fetch';
 
+import Geosuggest from 'react-geosuggest';
+
 import { changeLocation, updateRadius } from '../actions/LocationActions';
 
 import { selectSortBy } from '../actions/SortActions'
@@ -66,27 +68,32 @@ class LocationSearchContainer extends Component {
     this.setState({
       isLoadingExternally: true
     })
-    return fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${GOOGLE_MAPS_API}`, {
-  mode : 'no-cors'
-})    
-      .then((response) => {
-        return response.json();
-      }).then((json) => {
-        this.setState({
-          isLoadingExternally: false
-        })
-        let options = [];
-        json.predictions.map((prediction) => {
-          options.push({value: prediction.place_id, label: `${prediction.structured_formatting.main_text}, ${prediction.structured_formatting.secondary_text} ` })
-        });
-        return { options: options };
-      });
+    return fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${GOOGLE_MAPS_API}`)
+
+//https://github.com/Jam3/google-maps-api
+
+      // .then(response => {
+      //   console.log(response);
+      //   return response.json()
+
+      // })
+      // .then((json) => {
+      //   this.setState({
+      //     isLoadingExternally: false
+      //   })
+      //   let options = [];
+      //   json.predictions.map((prediction) => {
+      //     options.push({value: prediction.place_id, label: `${prediction.structured_formatting.main_text}, ${prediction.structured_formatting.secondary_text} ` })
+      //   });
+      //   console.log(options)
+      //   return { options: options };
+      // });
   }
 
   render() {
     return (
       <div className="LocationSearchContainer flex">
-        <Select.Async 
+        {/*<Select.Async 
           name={'Location Search'}
           loadOptions={this.getAddress}
           isLoading={this.state.isLoadingExternally}
@@ -94,7 +101,8 @@ class LocationSearchContainer extends Component {
           value={this.state.location}
           placeholder={'Search Address'}
           clearable={false}
-          />
+          />*/}
+          <Geosuggest />
         <Select
           name={'Location Radius'}
           options={this.rads}

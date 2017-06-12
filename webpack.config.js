@@ -18,12 +18,12 @@ module.exports = {
   entry: {
     main: [
       './src/main.js'
-      ,'webpack-dev-server/client?http://localhost:8080',
+      ,'webpack-dev-server/client?http://localhost:7777',
       'webpack/hot/only-dev-server'
     ]
   },
   output: {
-    publicPath: 'http://localhost:8080/',
+    publicPath: 'http://localhost:7777/',
     filename: '/js/[name].js',
     library: 'Hcpd',
     libraryTarget: 'umd',
