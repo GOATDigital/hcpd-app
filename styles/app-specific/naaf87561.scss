@@ -119,6 +119,7 @@ div.naaf87561 {
         font-weight: 400;
         color: rgb(155, 155, 155);
         margin-top: 20px;
+        line-height: 190%;
         &:hover {
             color: #65d1db;
         }
@@ -227,9 +228,12 @@ div.naaf87561 {
             }
         }
         .col-mobile-1 {
-            flex: 0 0 35%;
+            flex: 0 0 30%;
+            min-width: 100px;
         }
-        .col-mobile-2 {}
+        .col-mobile-2 {
+                text-align: left;
+        }
         .designation-block {
             max-width: 100%;
         }
