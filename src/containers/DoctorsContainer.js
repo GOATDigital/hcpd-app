@@ -17,9 +17,7 @@ class DoctorsContainer extends Component {
   }
 
   componentWillUpdate(nextProps, nextState){
-    console.log(nextProps, nextState)
     return false;
-
   }
 
   render() {
@@ -67,29 +65,27 @@ const keyWordFilters = (listings, activeKeyWordFilters, filters) => {
 
   keys.forEach((key) => {
     if (activeKeyWordFilters[key] == '') {
-      res=listings;
+      res = listings;
     } else {
-      let filts = filters.filter(filter => filter.id == key);
-      filts.map((filt) => {
-        filt.fields.forEach((field) => {
-          let temp = listings.filter((listing) => {
-            if (listing[field]) {
-              return listing[field].includes(activeKeyWordFilters[key])
-            }
-          })
-          res.push(temp);
-        })
-      })
+      res = listings.filter((listing) => listing['Bio__c'].toLowerCase().includes(activeKeyWordFilters[key].toLowerCase()))
     }
   })
   return flatten(res);
 }
 
+const getObjVal = (obj, prop) => {
+  if(prop === "sex") return obj["Gender__c"];
+  if(prop === "type_ofalopecia"){
+    return  [obj["Has_AA_patchy_loss__c"], obj["Has_AT__c"], obj["Has_AU__c"], obj["Has_Alopecia__c"]].join(' ')
+  }
+  return '';
+}
+
 const filterListings = (listings, filter) => {
   return listings.filter((listing) => {
-    if (listing[filter.name]) {
-      return listing[filter.name].includes(filter.value);
-    }
+    const itemValue = getObjVal(listing, filter.name);
+    if(itemValue == null) return false;
+    return itemValue.includes(filter.value);
   })
 }
 

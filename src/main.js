@@ -24,7 +24,7 @@ const renderApp = (config) => {
 };
 
 const init = (configObject) => {
-  $script("https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ITcc0I_2wC21ct9y-He2BNAVRP57JsE&libraries=places", function() {
+  $script("https://maps.googleapis.com/maps/api/js?key=AIzaSyBb2cdeOErzIvDQeHqBeCB_RJkgog3U5ic&libraries=places", function() {
     console.log('Start Hcpd with config: ', configObject);
     renderApp(configObject);
   });

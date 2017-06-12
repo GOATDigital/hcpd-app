@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes';
 
-const filters = [
+export const filters = [
    {
     name: 'Age',
     type: 'Checkbox',

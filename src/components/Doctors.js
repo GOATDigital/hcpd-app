@@ -34,9 +34,8 @@ class Doctors extends Component {
 
 
   renderContent() {
-    //console.log(JSON.stringify(this.props));
     if (this.props.filteredListings) {
-      const isMobileView = this.state.width < 860;
+      const isMobileView = this.state.width < 960;
       return this.props.filteredListings.map(listing => <DoctorItem view={isMobileView} key={Math.random(1)} { ...listing }/>)
     }
     else {

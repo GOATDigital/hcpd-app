@@ -46,7 +46,8 @@ const desktop_layout =  (<div className='doctor-item flex'>
           <span className='image-wrapper'><img src={`${doctor_image}`} /></span>
           {/*${API_ADDRESS}/media/images/*/}
         </div>: ''}
-        {has_video ? <a href={has_video} target="_blank" className='video-link'><img src={`${STATIC_ASSETS}media/Play.svg`} /> Watch video</a> : ''}
+        {has_video ? <a href={has_video} target="_blank" className='video-link'>
+           <span dangerouslySetInnerHTML={{__html: svg_play}} /> Watch video</a> : ''}
        </div>
        {/*colum 2*/}
        <div className='col col-main-2'>
