@@ -20,6 +20,34 @@ function fetchDoctorsSuccess(json) {
   }
 }
 
+function mapPropsToFilters(json){
+  json.map(i => {
+    /**
+     * 
+     * https://naaf.org/sites/default/files/images/gallery-images/sarah_guenzburger_cropped.jpg
+     * Gender__c
+:
+"Female"
+Has_AA_patchy_loss__c
+:
+null
+Has_AT__c
+:
+null
+Has_AU__c
+:
+"Yes"
+Has_Alopecia__c
+:
+null
+Birthdate
+:
+"1993-01-15"
+     */
+    return i;})
+  return json;
+}
+
 export function fetchDoctors(siteID) {
   
   const START_PAGE = '';

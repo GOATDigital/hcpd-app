@@ -101,7 +101,7 @@ div.naaf87561 {
         border: none;
         padding: 10px 20px;
         width: 150px;
-        border-radius: 5px;
+        border-radius: 3px;
         cursor: pointer;
         font-family: 'Roboto', sans-serif;
     }
@@ -199,5 +199,46 @@ div.naaf87561 {
     .address-line {
         font-weight: 400;
         color: rgb(155, 155, 155);
+    }
+    /* mobile version */
+    .mobile {
+        .doctor-image {
+            width: 80px;
+            height: 80px;
+        }
+        .row {
+            margin-bottom: 20px;
+        }
+        .row-props-listing {
+            li::before {
+                content: "■ ";
+                color: #65d1db;
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            li {
+                padding-left: 1em;
+                text-indent: -.7em;
+                text-align: left;
+                line-height: 220%;
+            }
+        }
+        .col-mobile-1 {
+            flex: 0 0 35%;
+        }
+        .col-mobile-2 {}
+        .designation-block {
+            max-width: 100%;
+        }
+         .link-button {
+            padding: 20px 30px;
+            min-width: 70%;
+         }
+         .name-line {
+            text-align: left;
+         }
     }
 }

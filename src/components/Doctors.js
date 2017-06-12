@@ -16,14 +16,28 @@ class Doctors extends Component {
 
   items = itemsMock
 
+  updateDimensions = () => {
+      this.setState({width: window.innerWidth});
+  }
+
   componentWillMount() {
+      this.updateDimensions();
+  }
+
+  componentDidMount() {
+      window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.updateDimensions);
   }
 
 
   renderContent() {
     //console.log(JSON.stringify(this.props));
     if (this.props.filteredListings) {
-      return this.props.filteredListings.map(listing => <DoctorItem key={Math.random(1)} { ...listing }/>)
+      const isMobileView = this.state.width < 860;
+      return this.props.filteredListings.map(listing => <DoctorItem view={isMobileView} key={Math.random(1)} { ...listing }/>)
     }
     else {
       if(this.props.loading){
