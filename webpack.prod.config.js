@@ -36,7 +36,7 @@ module.exports = {
     //new ExtractTextPlugin('./build/css/main.css'),
     //new webpack.optimize.CommonsChunkPlugin('vendor', './build/js/vendor.js', Infinity),
     new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV.trim() || 'development'),
          '__APPID__': JSON.stringify(process.env.NODE_PROJECT)
     }),
     // Optimize the bundle in release (production) mode
