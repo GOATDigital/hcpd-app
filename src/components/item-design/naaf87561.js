@@ -3,6 +3,8 @@
 import React from 'react';
 import { API_ADDRESS, STATIC_ASSETS } from '../../constants/Config';
 
+const EXTERNAL_URL = 'https://naaf.org/enroll-your-child-into-the-mentee-program?mentor=';
+
 const has_types = 
   [{
     code: "Has_AA_patchy_loss__c",
@@ -20,12 +22,12 @@ const has_types =
 
 const DoctorItemNAAF = (data) => {
 
-  let age, type_of_practice = [], office_managers_name, 
-  practice_website, practice_email, practice_phone, zip_code, state, city, address_2, 
-  address_1, country, practice_name, taking_patients, sex, email , designation, last_name, 
-  first_name, has_video, doctor_image, will_meet_with, designation_short, view, types;
+  let id, age, type_of_practice = [], state, city, address_2, 
+  taking_patients, sex, email , designation, last_name, 
+  first_name, has_video, doctor_image, will_meet_with, designation_short, view, types, isMobile;
 
-  const isMobile = data.view;
+  isMobile = data.view;
+  id = data['Id'];
   has_types.forEach(t => { if(data[t.code]){ type_of_practice.push(t.title);}});
   types = type_of_practice.join(', ').substring(type_of_practice.length-2);
   first_name = data.FirstName;
@@ -33,18 +35,21 @@ const DoctorItemNAAF = (data) => {
   sex = data.Gender__c;
   age = new Date().getFullYear() - new Date(data.Birthdate).getFullYear();
   has_video = true;
-  doctor_image = `IMAGE_HERE`//`https://na78.salesforce.com/${data.PhotoUrl}`;
+  doctor_image = data['URL_for_Peer_Platform_Photo__c'];
   address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
   designation = data.Description || data.Bio__c;
   will_meet_with = (data.Mentor_Kids__c ? 'Children' : '') + ' ' + (data.Mentor_Parents__c ? 'Parents' : '');
   designation_short = designation.slice(0, 150);
+
+const handleClick = () => {
+    window.location = `${EXTERNAL_URL}${id}`;
+};
 
 const desktop_layout =  (<div className='doctor-item flex'>
         {/*1 column*/}
         <div className='col col-main-1'>
         {doctor_image ? <div className='inline doctor-image'>
           <span className='image-wrapper'><img src={`${doctor_image}`} /></span>
-          {/*${API_ADDRESS}/media/images/*/}
         </div>: ''}
         {has_video ? <a href={has_video} target="_blank" className='video-link'>
            <span dangerouslySetInnerHTML={{__html: svg_play}} /> Watch video</a> : ''}
@@ -75,7 +80,7 @@ const desktop_layout =  (<div className='doctor-item flex'>
         </div>
       {/*colum 4*/}
         <div className='col col-main-4'>
-          <button className={'link-button'}>Connect with {first_name}</button>
+          <button className={'link-button'} onClick={handleClick}>Connect with {first_name}</button>
         </div>
     </div>);
 
@@ -87,7 +92,6 @@ const mobile_layout =  (<div className='doctor-item flex mobile'>
         <div className='col col-mobile-1'>
             {doctor_image ? <div className='inline doctor-image'>
               <span className='image-wrapper'><img src={`${doctor_image}`} /></span>
-              {/*${API_ADDRESS}/media/images/*/}
             </div>: ''}
           </div>
           <div className='col-mobile-2'>
@@ -110,7 +114,7 @@ const mobile_layout =  (<div className='doctor-item flex mobile'>
         </ul>
      </div>
       <div className='row flex'>
-          <button className={'link-button'}>Connect with {first_name}</button>
+          <button className={'link-button'} onClick={handleClick}>Connect with {first_name}</button>
      </div>
      </div>);
 
