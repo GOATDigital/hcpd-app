@@ -20,17 +20,22 @@ function fetchDoctorsSuccess(json) {
   }
 }
 
+function mapPropsToFilters(json){
+  json.map(i => {
+    return i;})
+  return json;
+}
+
 export function fetchDoctors(siteID) {
+  
+  const START_PAGE = '';
 
   return dispatch => {
 
     dispatch(fetchDoctorsRequest(siteID))
-    return fetch(`${API_ADDRESS}/api/listings?siteId=${siteID}`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`
-      },
-    })
+    return fetch(`${API_ADDRESS}/api/listings?siteId=${siteID}&input=new&isTakingPatients=true&distance=10&page=${START_PAGE}`, {
+      method: 'GET'
+    }, { mode : 'no-cors'})
       .then(response => response.json())
       .then(json => 
         dispatch(fetchDoctorsSuccess(json))
@@ -39,10 +44,11 @@ export function fetchDoctors(siteID) {
 }
 
 function shouldFetchDoctors(state, siteID) {
+  //debugger;
   const listings = state.doctors.listings
   if (!listings) {
     return true
-  } else if (doctors.isFetching) {
+  } else if (doctors.loading) {
     return false
   } else {
     return doctors.didInvalidate

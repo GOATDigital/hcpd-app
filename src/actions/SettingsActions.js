@@ -1,74 +1,87 @@
 import * as types from '../constants/ActionTypes';
 
-const filters = [
-  {
-    id: 1,
-    name: 'Payment Methods',
+export const filters = [
+   {
+    name: 'Age',
     type: 'Checkbox',
     options: [
       {
-        id: 1,
-        value: 'Cash/Credit',
-        label: 'Cash/Credit',
+        id: 8,
+        type: 'Checkbox',
+        value: '2030',
+        label: '20-30',
       },
       {
-        id: 2,
-        value: 'Medicare',
-        label: 'Medicare',
+        id: 9,
+        type: 'Checkbox',
+        value: '3040',
+        label: '30-40',
       },
       {
-        id: 3,
-        value: 'Medicaid',
-        label: 'Medicaid',
+        id: 10,
+        type: 'Checkbox',
+        value: '4050',
+        label: '40-50',
       },
       {
-        id: 4,
-        value: 'Private insurance',
-        label: 'Private insurance',
-      },
-      {
-        id: 5,
-        value: 'Sliding scale',
-        label: 'Sliding scale',
+        id: 11,
+        type: 'Checkbox',
+        value: '5060',
+        label: '50-60',
       }
     ]
   },
   {
     id: 2,
-    name: 'Languages Spoken',
+    name: 'Gender',
     type: 'Select',
     options: [
       {
         id: 6,
-        value: 'english',
-        label: 'English',
+        value: 'male',
+        label: 'Male',
       },
       {
         id: 7,
-        value: 'spanish',
-        label: 'Spanish',
+        value: 'female',
+        label: 'Female',
       }
     ]
   },
-  {
-    name: 'Taking Patients',
-    type: 'Select',
+ {
+    id: 1,
+    name: 'Type of Alopecia',
+    type: 'Checkbox',
     options: [
       {
-        id: 8,
-        value: 'yes',
-        label: 'Yes',
+        id: 1,
+        type: 'Checkbox',
+        value: 'Has_AA_patchy_loss__c',
+        label: 'Alopecia Areata',
       },
       {
-        id: 9,
-        value: 'no',
-        label: 'No',
+        id: 2,
+        type: 'Checkbox',
+        value: 'Has_AT__c',
+        label: 'Alopecia Universalis',
+      },
+      {
+        id: 3,
+        type: 'Checkbox',
+        value: 'Has_AU__c',
+        label: 'Alopecia Areata - Patchy',
+      },
+      {
+        id: 4,
+        type: 'Checkbox',
+        value: 'Has_Alopecia__c',
+        label: 'Alopecia Totalis',
       }
     ]
   },
   {
     id: 4,
-    name: 'Doctor or Practice Search',
+    name: 'Keyword',
     type: 'Keyword',
     fields: ['first_name', 'last_name', 'practice_name'],
   }

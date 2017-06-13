@@ -7,6 +7,8 @@ import Select from 'react-select';
 
 import fetch from 'isomorphic-fetch';
 
+import Geosuggest from 'react-geosuggest';
+
 import { changeLocation, updateRadius } from '../actions/LocationActions';
 
 import { selectSortBy } from '../actions/SortActions'
@@ -24,11 +26,12 @@ class LocationSearchContainer extends Component {
   }
 
   onLocationSelect = (location) => {
-    const { dispatch } = this.props;
-    this.setState({
-      location: location,
-    })
-    dispatch(changeLocation(location.value));
+    console.log(location)
+    // const { dispatch } = this.props;
+    // this.setState({
+    //   location: location,
+    // })
+    // dispatch(changeLocation(location.value));
   }
 
   onRadiusChange = (radius) => {
@@ -47,6 +50,12 @@ class LocationSearchContainer extends Component {
     dispatch(selectSortBy(feat));
   }
 
+  fixtures = [
+      {label: 'New York', location: {lat: 40.7033127, lng: -73.979681}},
+      {label: 'Rio', location: {lat: -22.066452, lng: -42.9232368}},
+      {label: 'Tokyo', location: {lat: 35.673343, lng: 139.710388}}
+    ];
+
   rads = [
     { value: 1, label: '1 miles'},
     { value: 5, label: '5 miles'},
@@ -62,39 +71,13 @@ class LocationSearchContainer extends Component {
     { value: 'All', label: 'Any' },
   ]
 
-  getAddress = (input) => {
-    this.setState({
-      isLoadingExternally: true
-    })
-    return fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${GOOGLE_MAPS_API}`, {
-  mode : 'no-cors'
-})    
-      .then((response) => {
-        return response.json();
-      }).then((json) => {
-        this.setState({
-          isLoadingExternally: false
-        })
-        let options = [];
-        json.predictions.map((prediction) => {
-          options.push({value: prediction.place_id, label: `${prediction.structured_formatting.main_text}, ${prediction.structured_formatting.secondary_text} ` })
-        });
-        return { options: options };
-      });
-  }
-
   render() {
     return (
       <div className="LocationSearchContainer flex">
-        <Select.Async 
-          name={'Location Search'}
-          loadOptions={this.getAddress}
-          isLoading={this.state.isLoadingExternally}
-          onChange={this.onLocationSelect}
-          value={this.state.location}
-          placeholder={'Search Address'}
-          clearable={false}
-          />
+          <Geosuggest placeholder={'Search Address'}
+                      fixtures={this.fixtures}
+                      value={this.state.location}
+                      onSuggestSelect={this.onLocationSelect}/>
         <Select
           name={'Location Radius'}
           options={this.rads}

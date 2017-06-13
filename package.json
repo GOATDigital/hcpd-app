@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p --config ./webpack.prod.config.js",
+    "build": "NODE_ENV=production && webpack -p --config ./webpack.prod.config.js",
     "lint": "eslint src",
-    "start": "webpack-dev-server --progress --colors --hot --content-base public --config ./webpack.config.js",
+    "start": "webpack-dev-server --progress --colors --port 7777 --hot --content-base public --config ./webpack.config.js",
     "test": "mocha --compilers js:babel-register --recursive"
   },
   "repository": {
@@ -35,6 +35,7 @@
     "mocha": "^3.0.2",
     "mocha-loader": "^1.0.0",
     "node-sass": "^3.4.2",
+    "open-browser-webpack-plugin": "0.0.5",
     "postcss-loader": "^0.13.0",
     "react-hot-loader": "^3.0.0-beta.4",
     "sass-loader": "^4.0.2",
@@ -44,17 +45,22 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "es6-promise": "^4.1.0",
     "geolib": "^2.0.22",
     "isomorphic-fetch": "^2.2.1",
     "js-cookie": "^2.1.3",
     "lodash": "^4.16.4",
     "normalizr": "^2.2.1",
+    "prop-types": "^15.5.10",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-geosuggest": "^2.3.0",
+    "react-infinite-scroller": "^1.0.12",
     "react-redux": "^4.1.2",
     "react-select": "^1.0.0-rc.2",
     "react-spinkit": "^1.1.11",
     "redux": "^3.1.4",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "scriptjs": "^2.5.8"
   }
 }

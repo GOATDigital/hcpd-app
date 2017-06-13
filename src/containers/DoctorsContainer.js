@@ -1,11 +1,14 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchDoctorsIfNeeded, filterDoctorsStart, filterDoctorsFinish } from '../actions/DoctorActions';
 import MobileDoctors from '../components/MobileDoctors';
 import Doctors from '../components/Doctors';
 import { CLIENT_ID } from '../constants/Config';
 
-import { isEmpty, find, flatten } from 'lodash';
+//DB specific read/compare mathods
+import {valueComparator, valueExtractor, keyWordFilters, checkboxTypeFilter} from '../constants/item-design/naaf87561';
+
+import {flatten} from 'lodash';
 
 import geolib from 'geolib';
 
@@ -14,6 +17,10 @@ class DoctorsContainer extends Component {
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(fetchDoctorsIfNeeded(CLIENT_ID))
+  }
+
+  componentWillUpdate(nextProps, nextState){
+    return false;
   }
 
   render() {
@@ -26,11 +33,26 @@ const getFilteredListings = (listings, activeFilters, filters, location, activeK
   let sorted = sortListings(locationFiltered, sortBy);
   let keyWordFiltered = keyWordFilters(sorted, activeKeyWordFilters, settings.filters);
   let filtered = keyWordFiltered;
-  activeFilters.map((filter) => {
-    if (filter) {
-      filtered = filterListings(filtered, filters[filter])
-    } 
-  })
+
+  const filterGroups = _.partition(activeFilters.filter(f => f), i => filters[i].type === "Checkbox") || [[],[]];
+
+  if(filterGroups[0].length){ //multiple choice
+    const groups = _.groupBy(filterGroups[0].map(filter => filters[filter]), filter => filter.name);
+    filtered = filtered.filter(item => {
+      let itemFits = true;
+      Object.keys(groups).forEach(groupIndex => {
+       itemFits = itemFits ? checkboxTypeFilter(groups[groupIndex], item) : false;
+      })
+      return itemFits;
+    })
+  }
+
+  if(filterGroups[1].length){ //single choice
+    filterGroups[1].map(filter => {
+      if (filter) filtered = filterListings(filtered, filters[filter])
+    });
+  }
+ 
   return filtered ? filtered : listings;
 }
 
@@ -52,38 +74,11 @@ const sortListings = (listings, sortBy) => {
   }
 }
 
-const keyWordFilters = (listings, activeKeyWordFilters, filters) => {
-  if (isEmpty(activeKeyWordFilters)) {
-    return listings;
-  }
-  let keys = Object.keys(activeKeyWordFilters);
-  let res = [];
-
-  keys.forEach((key) => {
-    if (activeKeyWordFilters[key] == '') {
-      res=listings;
-    } else {
-      let filts = filters.filter(filter => filter.id == key);
-      filts.map((filt) => {
-        filt.fields.forEach((field) => {
-          let temp = listings.filter((listing) => {
-            if (listing[field]) {
-              return listing[field].includes(activeKeyWordFilters[key])
-            }
-          })
-          res.push(temp);
-        })
-      })
-    }
-  })
-  return flatten(res);
-}
-
 const filterListings = (listings, filter) => {
   return listings.filter((listing) => {
-    if (listing[filter.name]) {
-      return listing[filter.name].includes(filter.value);
-    }
+    const itemValue = valueExtractor(listing, filter.name);
+    if(itemValue == null) return false;
+    return valueComparator[filter.name](itemValue, filter.value);
   })
 }
 
@@ -109,7 +104,7 @@ function mapStateToProps(state) {
   const { listings, loading, error } = doctors;
   const { radius, lat, long } = location;
   const { sortBy } = sort;
-
+  
   return {
     authed,
     isMobile,

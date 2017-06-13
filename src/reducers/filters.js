@@ -2,41 +2,61 @@ import * as types from '../constants/ActionTypes';
 
 const initialState = {
   1: {
-      value: 'Cash/Credit',
-      name: 'payment_methods',
-    },
+    name: 'type_ofalopecia',
+    type: 'Checkbox',
+    label: 'Alopecia Areata',
+    value: 'Has_AA_patchy_loss__c'
+  },
   2: {
-      value: 'Medicare',
-      name: 'payment_methods',
-    },
-  3: {
-      value: 'Medicaid',
-      name: 'payment_methods',
-    },
-  4: {
-      value: 'Private Insurance',
-      name: 'payment_methods',
-    },
-  5: {
-      value: 'Sliding Scale',
-      name: 'payment_methods',
-    },
+    name: 'type_ofalopecia',
+    type: 'Checkbox',
+    label: 'Alopecia Universalis',
+    value: 'Has_AT__c'
+  },
+   3: {
+    name: 'type_ofalopecia',
+    type: 'Checkbox',
+    label: 'Alopecia Areata - Patchy',
+    value : 'Has_AU__c'
+  },
+   4: {
+    name: 'type_ofalopecia',
+    type: 'Checkbox',
+    label: 'Alopecia Totalis',
+    value : 'Has_Alopecia__c'
+  },
   6: {
-      value: 'english',
-      name: 'languages_spoken',
+      name: 'sex',
+      value: 'Male'
     },
   7: {
-      value: 'spanish',
-      name: 'languages_spoken',
+      name: 'sex',
+      value: 'Female'
     },
   8: {
-      value: 'yes',
-      name: 'taking_patients',
-    },
+      name: 'age',
+      type: 'Checkbox',
+      value: '20-30',
+      label: '20-30',
+      },
   9: {
-      value: 'no',
-      name: 'taking_patients',
-    }
+        name: 'age',
+        type: 'Checkbox',
+        value: '30-40',
+        label: '30-40',
+      },
+  10: {
+        name: 'age',
+        type: 'Checkbox',
+        value: '40-50',
+        label: '40-50',
+      },
+  11: {
+        name: 'age',
+        type: 'Checkbox',
+        value: '50-60',
+        label: '50-60',
+      }
 };
 
 export default function filters(state = initialState, action) {

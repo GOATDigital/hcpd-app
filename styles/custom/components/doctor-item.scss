@@ -8,7 +8,13 @@ p {
   color: $light;
   font-size: 12px;
 }
-
+.video-link {
+  text-decoration: none;
+  img {
+    float: left;
+    width: 25px;
+  }
+}
 .doctor-item {
   background-color: rgba(0,0,0,.02);
   justify-content: space-between;

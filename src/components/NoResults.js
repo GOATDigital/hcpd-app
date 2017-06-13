@@ -1,12 +1,10 @@
 import React from 'react';
 
-const noResultsText = "We couldn't find any doctors with your selected filters.";
+const noResultsTextNAAF = "We couldn't find any peer mentors with your selected filters.";
 
 const NoResults = () => {
   return (
-    <div className='doctor-item no-results flex'>
-      <div className='col'>{noResultsText}</div>
-    </div>
+      <div className='col'>{noResultsTextNAAF}</div>
   );
 }
 

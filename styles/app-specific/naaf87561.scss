@@ -1,0 +1,300 @@
+/* NAAF design */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+div.naaf87561 {
+    color: #5c5b5c;
+    font-family: 'Roboto', sans-serif;
+    /* table header columns */
+    .col-0 {
+        p {
+            text-align: center;
+        }
+    }
+    .col-1,
+    .col-2,
+    .col-3 {
+        flex: 0 0 15%;
+        text-align: center;
+    }
+    .col-4 {
+        flex: 0 0 17%;
+        p {
+            text-align: center;
+        }
+    }
+    .geosuggest {
+        flex: 0 0 60%;
+        padding: 0rem 5px;
+         @media (max-width: 960px) {
+            flex: 100%;
+            padding: 1rem 5px;
+            margin: 0 1rem;
+        }
+        .geosuggest__input {
+            border-radius: 4px;
+            border: 1px solid #D3D3D3;
+            height: 50px;
+            font-size: 16px;
+            width: 100%;
+            padding: 0 5px;
+            color: #aaa;
+        }
+        .geosuggest__suggests {
+            max-height: 198px;
+            overflow-y: auto;
+            list-style-type: none;
+            position: absolute;
+            z-index: 1000;
+            .geosuggest__item {
+                background-color:#fff;
+                color: #333;
+                cursor: pointer;
+                display: block;
+                padding: 8px 10px;
+                &:hover {
+                    background:rgb(101, 209, 218);
+                }
+            }
+        }
+        
+    }
+
+    /* table columns */
+    .col-main-1 {
+        flex: 0 0 15%;
+    }
+    .col-main-2 {
+        flex: 0 0 55%;
+    }
+    .col-main-3 {
+        flex: 0 0 15%;
+    }
+    .col-main-4 {
+        flex: 0 0 15%;
+    }
+    .doctorsHeader {
+        background: #fff;
+        font-weight: 700;
+        .col p {
+            color: #5c5c5c;
+        }
+    }
+    .col-sub-1 {
+        flex: 0 0 50%;
+        text-align: left;
+    }
+    .col-sub-2,
+    .col-sub-3 {
+        flex: 0 0 25%;
+    }
+    /* Header */
+    h1 {
+        font-size: 48px;
+        font-weight: normal;
+        color: rgb(74, 74, 74);
+        text-transform: uppercase;
+    }
+    h2 {
+        font-size: 30px;
+        font-weight: normal;
+        color: rgb(101, 209, 218);
+    }
+    .doctors {
+        max-width: 1400px;
+    }
+    .header {
+        text-align: left;
+        background: #F7F7F7;
+        max-width: 1400px;
+        margin: auto;
+        min-width: 960px;
+        padding-bottom: 0;
+        @media (max-width: 960px) {
+            min-width: 100%;
+        }
+    }
+    .header-wrapper {
+        padding: 20px 25px;
+    }
+    .find-provider-text {
+        font-size: 24px;
+    }
+    .find-provider-text,
+    .filterToggleButton .button {
+        text-align: left;
+        text-transform: none;
+        padding: 0 15px;
+        font-size: 14px;
+    }
+    .clear-filters {
+        color: #65d1db;
+        cursor: pointer;
+    }
+    .filterToggleButton button {
+        color: #65d1db;
+        font-family: 'Roboto', sans-serif;
+        padding: 10px 0px;
+    }
+    .link-button {
+        background: #65d1db;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        width: 150px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+    }
+    .designation-block {
+        max-width: 80%;
+        text-align: left;
+        line-height: 26px;
+    }
+    .video-link {
+        width: 130px;
+        cursor: pointer;
+        font-size: 14px;
+        display: block;
+        text-align: center;
+        font-weight: 400;
+        color: rgb(155, 155, 155);
+        margin-top: 20px;
+        line-height: 200%;
+        &:hover {
+            color: #65d1db;
+             svg g#Mobile_Close_Filter {
+                stroke: #65d1db;
+            }
+        }   
+        span {
+            float: left;
+        }
+    }
+    .doctor-item {
+        border-bottom: 1px solid #e3f7f9;
+        background: #ffffff;
+        p {
+            font-size: 16px;
+        }
+    }
+    .DoctorCount,
+    .FilterBar {
+        background: #f7f7f7;
+        text-align: left;
+        padding: 15px;
+    }
+    .DoctorCount p {
+        text-align: left;
+        text-transform: none;
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+    .Select-control {
+        border-radius: 4px;
+        border: 1px solid #D3D3D3;
+        height: 50px;
+        font-size: 16px;
+    }
+    .Select-placeholder {
+        line-height: 50px;
+        font-size: 16px;
+    }
+    .Select-value {
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .Select-value-label {
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .has-value.Select--single {
+        .Select-control {
+            .Select-value {
+                .Select-value-label {
+                    line-height: 50px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    .KeyWordSearchContainer input {
+        height: 50px;
+        font-size: 16px;
+    }
+    .FilterBar .customFilters {
+        border: none;
+        padding: 15px 10px;
+        .space {
+            padding: 1rem 5px;
+        }
+    }
+    p.label {
+        color: #5c5c5c;
+        font-size: 14px;
+    }
+    .doctor-image {
+        width: 130px;
+        height: 130px;
+        display: block;
+        border-radius: 70px;
+        background: #eee;
+        overflow: hidden;
+    }
+    .image-wrapper {
+        img {
+            width: 100%;
+        }
+    }
+    .name-line {
+        font-weight: 400;
+    }
+    .address-line {
+        font-weight: 400;
+        color: rgb(155, 155, 155);
+    }
+    /* mobile version */
+    .mobile {
+        .doctor-image {
+            width: 80px;
+            height: 80px;
+        }
+        .row {
+            margin-bottom: 20px;
+        }
+        .row-props-listing {
+            li::before {
+                content: "■ ";
+                color: #65d1db;
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            li {
+                padding-left: 1em;
+                text-indent: -.7em;
+                text-align: left;
+                line-height: 220%;
+            }
+        }
+        .col-mobile-1 {
+            flex: 0 0 30%;
+            min-width: 100px;
+        }
+        .col-mobile-2 {
+            text-align: left;
+            padding: .5em 0;
+        }
+        .designation-block {
+            max-width: 100%;
+        }
+         .link-button {
+            padding: 20px 30px;
+            min-width: 70%;
+         }
+         .name-line {
+            text-align: left;
+         }
+    }
+}
