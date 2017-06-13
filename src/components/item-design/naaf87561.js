@@ -33,7 +33,7 @@ const DoctorItemNAAF = (data) => {
   sex = data.Gender__c;
   age = new Date().getFullYear() - new Date(data.Birthdate).getFullYear();
   has_video = true;
-  doctor_image = `https://na78.salesforce.com/${data.PhotoUrl}`;
+  doctor_image = `IMAGE_HERE`//`https://na78.salesforce.com/${data.PhotoUrl}`;
   address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
   designation = data.Description || data.Bio__c;
   will_meet_with = (data.Mentor_Kids__c ? 'Children' : '') + ' ' + (data.Mentor_Parents__c ? 'Parents' : '');

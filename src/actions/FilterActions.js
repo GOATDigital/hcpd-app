@@ -13,8 +13,6 @@ function updateFilters(filters) {
 
 
 export default function parseFilters(filters) {
-
-  console.log(filters);
   
   return dispatch => {
     let tmp = updateFilters(flatten(values(filters)));

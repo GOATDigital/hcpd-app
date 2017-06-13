@@ -5,6 +5,9 @@ import MobileDoctors from '../components/MobileDoctors';
 import Doctors from '../components/Doctors';
 import { CLIENT_ID } from '../constants/Config';
 
+//DB specific read/compare mathods
+import {valueComparator, valueExtractor, keyWordFilters} from '../constants/item-design/naaf87561';
+
 import { isEmpty, find, flatten } from 'lodash';
 
 import geolib from 'geolib';
@@ -56,36 +59,16 @@ const sortListings = (listings, sortBy) => {
   }
 }
 
-const keyWordFilters = (listings, activeKeyWordFilters, filters) => {
-  if (isEmpty(activeKeyWordFilters)) {
-    return listings;
-  }
-  let keys = Object.keys(activeKeyWordFilters);
-  let res = [];
 
-  keys.forEach((key) => {
-    if (activeKeyWordFilters[key] == '') {
-      res = listings;
-    } else {
-      res = listings.filter((listing) => listing['Bio__c'].toLowerCase().includes(activeKeyWordFilters[key].toLowerCase()))
-    }
-  })
-  return flatten(res);
-}
 
-const getObjVal = (obj, prop) => {
-  if(prop === "sex") return obj["Gender__c"];
-  if(prop === "type_ofalopecia"){
-    return  [obj["Has_AA_patchy_loss__c"], obj["Has_AT__c"], obj["Has_AU__c"], obj["Has_Alopecia__c"]].join(' ')
-  }
-  return '';
-}
+
+
 
 const filterListings = (listings, filter) => {
   return listings.filter((listing) => {
-    const itemValue = getObjVal(listing, filter.name);
+    const itemValue = valueExtractor(listing, filter.name);
     if(itemValue == null) return false;
-    return itemValue.includes(filter.value);
+    return valueComparator[filter.name](itemValue, filter.value);
   })
 }
 

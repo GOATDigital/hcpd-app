@@ -51,7 +51,7 @@ class FilterBar extends Component {
     return (
       <Button
         className='toggle-filters-text'
-        text={this.props.filtersVisible ? 'Show Less Filters' : 'Show More Filters'}
+        text={this.props.filtersVisible ? 'Hide Filters' : 'Show More Filters'}
         onClick={this.handleClick}
       />
     )
@@ -108,7 +108,7 @@ class FilterBar extends Component {
       if (filter.type == 'Keyword') {
         return (
       <Button
-        text={this.props.filtersVisible ? 'Show Less Filters' : 'Show More Filters'}
+        text={this.props.filtersVisible ? 'Hide Filters' : 'Show More Filters'}
         onClick={this.handleClick}
       />
       )
@@ -130,6 +130,7 @@ class FilterBar extends Component {
           <div className="filterToggleButton">
             {this.renderToggleButton()}
           </div>
+          {/*{this.renderClearFiltersButton()}*/}
         </div>
         <div className="customFilters" style={{display: (this.props.filtersVisible ? 'flex' : 'none')}}>
           {this.renderSelectFilters()}

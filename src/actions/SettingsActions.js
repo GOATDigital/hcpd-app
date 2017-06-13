@@ -19,6 +19,11 @@ export const filters = [
         id: 10,
         value: '4050',
         label: '40-50',
+      },
+      {
+        id: 11,
+        value: '5060',
+        label: '50-60',
       }
     ]
   },
@@ -46,22 +51,22 @@ export const filters = [
     options: [
       {
         id: 1,
-        value: 'Alopecia Areata',
+        value: 'Has_AA_patchy_loss__c',
         label: 'Alopecia Areata',
       },
       {
         id: 2,
-        value: 'Alopecia Universalis',
+        value: 'Has_AT__c',
         label: 'Alopecia Universalis',
       },
       {
         id: 3,
-        value: 'Alopecia Areata - Patchy',
+        value: 'Has_AU__c',
         label: 'Alopecia Areata - Patchy',
       },
       {
         id: 4,
-        value: 'Alopecia Totalis',
+        value: 'Has_Alopecia__c',
         label: 'Alopecia Totalis',
       }
     ]

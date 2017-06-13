@@ -17,12 +17,11 @@ export default function activeFilters(state = initialState, action) {
       }
     case types.CLEAR_FILTERS:
       return { ...state,
-        filters: []
+        filters : []
       }
     case types.CHANGE_FILTERS:
 
       return { ...state,
-
         filters: action.filters
       }
     default:

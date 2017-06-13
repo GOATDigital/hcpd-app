@@ -11,7 +11,7 @@ class FilterBarConainer extends Component {
 
   handleChange = (name, values) => {
     const { dispatch } = this.props;
-    if (values.length > 0) {
+    if (values && values.length > 0) {
       this.activeFilters[name] = values.map(val => val.id)
     } else {
       this.activeFilters[name] = values.id;
