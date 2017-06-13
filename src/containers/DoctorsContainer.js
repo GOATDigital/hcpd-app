@@ -6,9 +6,9 @@ import Doctors from '../components/Doctors';
 import { CLIENT_ID } from '../constants/Config';
 
 //DB specific read/compare mathods
-import {valueComparator, valueExtractor, keyWordFilters} from '../constants/item-design/naaf87561';
+import {valueComparator, valueExtractor, keyWordFilters, checkboxTypeFilter} from '../constants/item-design/naaf87561';
 
-import { isEmpty, find, flatten } from 'lodash';
+import {flatten} from 'lodash';
 
 import geolib from 'geolib';
 
@@ -33,11 +33,26 @@ const getFilteredListings = (listings, activeFilters, filters, location, activeK
   let sorted = sortListings(locationFiltered, sortBy);
   let keyWordFiltered = keyWordFilters(sorted, activeKeyWordFilters, settings.filters);
   let filtered = keyWordFiltered;
-  activeFilters.map((filter) => {
-    if (filter) {
-      filtered = filterListings(filtered, filters[filter])
-    } 
-  })
+
+  const filterGroups = _.partition(activeFilters.filter(f => f), i => filters[i].type === "Checkbox") || [[],[]];
+
+  if(filterGroups[0].length){ //multiple choice
+    const groups = _.groupBy(filterGroups[0].map(filter => filters[filter]), filter => filter.name);
+    filtered = filtered.filter(item => {
+      let itemFits = true;
+      Object.keys(groups).forEach(groupIndex => {
+       itemFits = itemFits ? checkboxTypeFilter(groups[groupIndex], item) : false;
+      })
+      return itemFits;
+    })
+  }
+
+  if(filterGroups[1].length){ //single choice
+    filterGroups[1].map(filter => {
+      if (filter) filtered = filterListings(filtered, filters[filter])
+    });
+  }
+ 
   return filtered ? filtered : listings;
 }
 
@@ -58,11 +73,6 @@ const sortListings = (listings, sortBy) => {
     });
   }
 }
-
-
-
-
-
 
 const filterListings = (listings, filter) => {
   return listings.filter((listing) => {

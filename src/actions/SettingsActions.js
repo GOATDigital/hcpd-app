@@ -7,21 +7,25 @@ export const filters = [
     options: [
       {
         id: 8,
+        type: 'Checkbox',
         value: '2030',
         label: '20-30',
       },
       {
         id: 9,
+        type: 'Checkbox',
         value: '3040',
         label: '30-40',
       },
       {
         id: 10,
+        type: 'Checkbox',
         value: '4050',
         label: '40-50',
       },
       {
         id: 11,
+        type: 'Checkbox',
         value: '5060',
         label: '50-60',
       }
@@ -51,21 +55,25 @@ export const filters = [
     options: [
       {
         id: 1,
+        type: 'Checkbox',
         value: 'Has_AA_patchy_loss__c',
         label: 'Alopecia Areata',
       },
       {
         id: 2,
+        type: 'Checkbox',
         value: 'Has_AT__c',
         label: 'Alopecia Universalis',
       },
       {
         id: 3,
+        type: 'Checkbox',
         value: 'Has_AU__c',
         label: 'Alopecia Areata - Patchy',
       },
       {
         id: 4,
+        type: 'Checkbox',
         value: 'Has_Alopecia__c',
         label: 'Alopecia Totalis',
       }
