@@ -69,11 +69,11 @@ const desktop_layout =  (<div className='doctor-item flex'>
                 </div>
                 {/*sub col 2*/}
                 <div className='col-sub-2'>
-                  <p classname='text-center'>{age}, {sex}</p>
+                  <p className='text-center'>{age}, {sex}</p>
                 </div>
                 {/*sub col 3*/}
                 <div className='col-sub-3'>
-                  <p classname='text-center'>{will_meet_with}</p>
+                  <p className='text-center'>{will_meet_with}</p>
                 </div>
             </div>
             <p className='designation-block'>{designation}</p>
