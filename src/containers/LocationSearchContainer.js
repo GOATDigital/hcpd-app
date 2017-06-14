@@ -50,12 +50,6 @@ class LocationSearchContainer extends Component {
     dispatch(selectSortBy(feat));
   }
 
-  fixtures = [
-      {label: 'New York', location: {lat: 40.7033127, lng: -73.979681}},
-      {label: 'Rio', location: {lat: -22.066452, lng: -42.9232368}},
-      {label: 'Tokyo', location: {lat: 35.673343, lng: 139.710388}}
-    ];
-
   rads = [
     { value: 1, label: '1 miles'},
     { value: 5, label: '5 miles'},
@@ -75,7 +69,6 @@ class LocationSearchContainer extends Component {
     return (
       <div className="LocationSearchContainer flex">
           <Geosuggest placeholder={'Search Address'}
-                      fixtures={this.fixtures}
                       value={this.state.location}
                       onSuggestSelect={this.onLocationSelect}/>
         <Select

@@ -38,7 +38,11 @@ const DoctorItemNAAF = (data) => {
   doctor_image = data['URL_for_Peer_Platform_Photo__c'];
   address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
   designation = data.Description || data.Bio__c;
-  will_meet_with = (data.Mentor_Kids__c ? 'Children' : '') + ' ' + (data.Mentor_Parents__c ? 'Parents' : '');
+  
+  const meetChildren = (data.Mentor_Kids__c ? 'Children' : '');
+  const meetParents = (data.Mentor_Parents__c ? 'Parents' : '');
+  will_meet_with = (meetChildren.length > 0 && meetParents.length > 0) ? `${meetChildren}, ${meetParents}` : `${meetChildren} ${meetParents}`;
+
   designation_short = designation.slice(0, 150);
 
 const handleClick = () => {
@@ -87,7 +91,7 @@ const desktop_layout =  (<div className='doctor-item flex'>
     
 const mobile_layout =  (<div className='doctor-item flex mobile'>
 
-      <div className='row flex'>
+      <div className='row flex no-step'>
   
         <div className='col col-mobile-1'>
             {doctor_image ? <div className='inline doctor-image'>
@@ -100,17 +104,20 @@ const mobile_layout =  (<div className='doctor-item flex mobile'>
           </div>
         </div>
       <div className='row flex'>
+         <div className='col col-mobile-1'></div>
+         <div className='col-mobile-2'>
         {has_video ? <a href={has_video} target="_blank" className='video-link'>
           <span dangerouslySetInnerHTML={{__html: svg_play}} /> Watch video</a> : ''}
+          </div>
      </div>
       <div className='row flex'>
         <p className='designation-block'>{designation_short}</p>
      </div>
       <div className='row flex row-props-listing'>
         <ul>
-          <li>{age}, {sex}</li>
-          <li>{will_meet_with}</li>
-          <li>{types}</li>
+          <li><label>Age, gender:</label>{age}, {sex}</li>
+          <li><label>Will meet with:</label> {will_meet_with}</li>
+          <li><label>Type of Alopecia Areata:</label>{types}</li>
         </ul>
      </div>
       <div className='row flex'>

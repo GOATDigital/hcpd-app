@@ -14,7 +14,7 @@ class FilterBarConainer extends Component {
     if (values && values.length > 0) {
       this.activeFilters[name] = values.map(val => val.id)
     } else {
-      this.activeFilters[name] = values.id;
+      this.activeFilters[name] = values ? values.id : undefined;
     }
     dispatch(parseFilters(this.activeFilters));
   }

@@ -93,7 +93,7 @@ class FilterBar extends Component {
               options={filter.options}
               multi={filter.type == 'Checkbox' ? true : false}
               handleChange={this.handleChange}
-              clearable={false}
+              clearable={true}
               searchable={filter.type == 'Checkbox' ? true : false}
             />
             );
