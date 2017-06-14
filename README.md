@@ -21,6 +21,6 @@ editor app url - https://hcpd-backend.herokuapp.com/api/listing?input=new&isTaki
 
 ## Building
 1. Build uses `webpack.prod.config`
-2. To build, `NODE_PROJECT=XXX npm run build`
+2. To build, `NODE_PROJECT=XXX NODE_ENV=production npm run build`
  
   - for Windows run like `SET NODE_PROJECT=naaf87561 && SET NODE_ENV=production && webpack -p --config ./webpack.prod.config.js` 
