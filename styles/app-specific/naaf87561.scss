@@ -252,7 +252,6 @@ div.naaf87561 {
     p.label {
         color: #5c5c5c;
         font-size: 14px;
-        display: inline;
     }
     .doctor-image {
         width: 120px;
@@ -307,6 +306,7 @@ div.naaf87561 {
                 label {
                     color: $lightestGray;
                     margin-right: 5px;
+                    display: inline;
                 }
             }
         }
