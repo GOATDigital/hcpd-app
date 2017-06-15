@@ -10,7 +10,6 @@ import {
 export const valueExtractor = (obj, prop) => {
   if (prop === "sex") return obj["Gender__c"];
   if (prop === "type_ofalopecia") return obj;
-  if (prop === 'age') return new Date().getFullYear() - new Date(obj.Birthdate).getFullYear();
   return '';
 }
 
@@ -21,10 +20,6 @@ export const valueComparator = {
   "sex": (itemValue, filterValue) => itemValue.includes(filterValue),
   "type_ofalopecia": (itemValue, filterValue) => {
     return itemValue[filterValue] ? itemValue[filterValue].includes("Yes") : false;
-  },
-  "age": (itemValue, filterValue) => {
-    const minMax = filterValue.split('-')
-    return itemValue > parseInt(minMax[0]) && itemValue < parseInt(minMax[1]);
   }
 }
 const descriptionFitsUS = new RegExp(/.*, [A-Z]{2}, .*/);
@@ -108,29 +103,5 @@ export const initialState = {
   7: {
     name: 'sex',
     value: 'Female'
-  },
-  8: {
-    name: 'age',
-    type: 'Checkbox',
-    value: '20-30',
-    label: '20-30',
-  },
-  9: {
-    name: 'age',
-    type: 'Checkbox',
-    value: '30-40',
-    label: '30-40',
-  },
-  10: {
-    name: 'age',
-    type: 'Checkbox',
-    value: '40-50',
-    label: '40-50',
-  },
-  11: {
-    name: 'age',
-    type: 'Checkbox',
-    value: '50-60',
-    label: '50-60',
   }
 };

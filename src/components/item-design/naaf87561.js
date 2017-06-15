@@ -34,7 +34,7 @@ const DoctorItemNAAF = (data) => {
   last_name = data.LastName;
   sex = data.Gender__c;
   age = new Date().getFullYear() - new Date(data.Birthdate).getFullYear();
-  has_video = true;
+  has_video = data['URL_for_Peer_Platform__c'];
   doctor_image = data['URL_for_Peer_Platform_Photo__c'];
   address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
   designation = data.Description || data.Bio__c;
