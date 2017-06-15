@@ -2,36 +2,6 @@ import * as types from '../constants/ActionTypes';
 
 export const filters = [
    {
-    name: 'Age',
-    type: 'Checkbox',
-    options: [
-      {
-        id: 8,
-        type: 'Checkbox',
-        value: '2030',
-        label: '20-30',
-      },
-      {
-        id: 9,
-        type: 'Checkbox',
-        value: '3040',
-        label: '30-40',
-      },
-      {
-        id: 10,
-        type: 'Checkbox',
-        value: '4050',
-        label: '40-50',
-      },
-      {
-        id: 11,
-        type: 'Checkbox',
-        value: '5060',
-        label: '50-60',
-      }
-    ]
-  },
-  {
     id: 2,
     name: 'Gender',
     type: 'Select',
