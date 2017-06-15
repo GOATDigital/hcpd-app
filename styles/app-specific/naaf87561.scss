@@ -284,10 +284,18 @@ div.naaf87561 {
     }
     .clear-geo.Select-clear-zone{
         width: 47px;
-        margin-left: -30px;
+        position: relative;
+        left: -70px;
         background: transparent;
         border: none;
         outline: none;
+        @media (max-width: $breakpoint-tablet) {
+            position: initial;
+            margin-left: calc(100% - 80px);
+            margin-top: -85px;
+            z-index: 10000;
+            float: right;
+        }
     }
     .Select-control {
         border-radius: 4px;
