@@ -336,12 +336,16 @@ div.naaf87561 {
         font-size: 14px;
     }
     .doctor-image {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
         display: block;
         border-radius: 70px;
         background: #eee;
         overflow: hidden;
+        @media (max-width: 1150px) {
+            width: 120px;
+            height: 120px;
+        }
     }
     .image-wrapper {
         img {
