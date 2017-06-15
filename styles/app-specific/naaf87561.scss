@@ -5,6 +5,8 @@
 $breakpoint-tablet: 960px;
 $breakpoint-mobile: 650px;
 $lightestGray: rgba(0, 0, 0, 0.2);
+$blue: #65d1db;
+$lightGray: rgb(155, 155, 155);
 
 div.naaf87561 {
     color: #5c5b5c;
@@ -141,16 +143,16 @@ div.naaf87561 {
         font-size: 14px;
     }
     .clear-filters {
-        color: #65d1db;
+        color: $blue;
         cursor: pointer;
     }
     .filterToggleButton button {
-        color: #65d1db;
+        color: $blue;
         font-family: 'Roboto', sans-serif;
         padding: 10px 0px;
     }
     .link-button {
-        background: #65d1db;
+        background: $blue;
         color: white;
         border: none;
         padding: 10px 20px;
@@ -173,13 +175,13 @@ div.naaf87561 {
         display: block;
         text-align: center;
         font-weight: 400;
-        color: rgb(155, 155, 155);
+        color: $lightGray;
         margin-top: 20px;
         line-height: 180%;
         &:hover {
-            color: #65d1db;
+            color: $blue;
              svg g#Mobile_Close_Filter {
-                stroke: #65d1db;
+                stroke: $blue;
             }
         }   
         span {
@@ -250,6 +252,7 @@ div.naaf87561 {
     p.label {
         color: #5c5c5c;
         font-size: 14px;
+        display: inline;
     }
     .doctor-image {
         width: 120px;
@@ -269,7 +272,7 @@ div.naaf87561 {
     }
     .address-line {
         font-weight: 400;
-        color: rgb(155, 155, 155);
+        color: $lightGray;
     }
     .text-center {
         text-align: center;

@@ -106,7 +106,7 @@ class Doctors extends Component {
       <div className={'doctors-wrapper'}>
       <DoctorsHeader isMobile={isMobile}/>
        {!isNaaf ? <DoctorCount count={this.filteredListingsLength()} /> : ''}
-        <div className="container">
+        <div className="doctors-container">
           {this.renderContent()}
         </div>
         </div>
