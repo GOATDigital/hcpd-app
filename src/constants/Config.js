@@ -6,3 +6,4 @@ export const API_USER_ID = '59285539b8deb639861a1e07';
 export const API_USERNAME = 'nea';
 export const API_PASSWORD = 'nea-hcpd';
 export const APP_EMBED_ELEMENT = 'hcpd-container';
+export const GOOGLE_MAPS_API_INLINE = 'AIzaSyBb2cdeOErzIvDQeHqBeCB_RJkgog3U5ic';

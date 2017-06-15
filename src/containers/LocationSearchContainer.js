@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { GOOGLE_MAPS_API } from '../constants/Config';
 import { connect } from 'react-redux';
 
 import Select from 'react-select';

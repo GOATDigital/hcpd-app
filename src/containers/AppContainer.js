@@ -7,7 +7,6 @@ import DoctorsContainer from './DoctorsContainer';
 import Header from '../components/Header';
 
 import { initEnvironment } from '../actions/EnvironmentActions';
-import { initAuth } from '../actions/AuthedActions';
 import { initNavigator } from '../actions/NavigatorActions';
 import { initSettings } from '../actions/SettingsActions';
 
@@ -21,12 +20,8 @@ const propTypes = {
 class AppContainer extends Component {
 
   componentDidMount() {
-    
-    console.log(`App is : ${__APPID__}`);
-    
     const { dispatch } = this.props;
     dispatch(initEnvironment());
-    //dispatch(initAuth());
     dispatch(initNavigator());
     dispatch(initSettings());
   }

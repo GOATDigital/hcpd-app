@@ -55,13 +55,6 @@ class Doctors extends Component {
   componentWillUnmount() {
       window.removeEventListener("resize", this.updateDimensions);
   }
-  
-  // clearFilters = () => {
-  //   const { dispatch } = this.props;
-  //   dispatch(clearFilters());
-  //   console.log('clearFilters');
-  // }
-  //  <a className='clear-filters' onClick={this.clearFilters}>{'Clear filters'}</a>
 
   renderContent() {
     if (this.props.filteredListings) {

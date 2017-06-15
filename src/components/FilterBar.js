@@ -15,7 +15,6 @@ class FilterBar extends Component {
   activeFilters = {};
 
   handleChange = (name, values) => {
-//    console.log( this.props, name, values);
     this.props.handleChange(name,values);
   }
 
