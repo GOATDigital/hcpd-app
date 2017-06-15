@@ -23,11 +23,6 @@ class LocationSearchContainer extends Component {
     { value: 100, label: '100 miles'},
     { value: 200, label: '200 miles'},
   ]
-  
-  feats = [
-    { value: 'Featured', label: 'Featured Listing' },
-    { value: 'All', label: 'Any' },
-  ]
 
   searchType = ['(cities)']
 
@@ -39,7 +34,6 @@ class LocationSearchContainer extends Component {
       isLoadingExternally: false,
       location: this.props.location,
       radius: { value: 25, label: '25 miles' },
-      feat: { value: 'Featured', label: 'Featured Listing' },
     }
   }
 
@@ -59,14 +53,6 @@ class LocationSearchContainer extends Component {
       radius: radius,
     })
     dispatch(updateRadius(radius));
-  }
-
-  onSortChange = (feat) => {
-    const { dispatch } = this.props;
-    this.setState({
-      feat: feat,
-    })
-    dispatch(selectSortBy(feat));
   }
 
   clearLocationField() {
@@ -96,16 +82,6 @@ class LocationSearchContainer extends Component {
           searchable={false}
           clearable={false}
           placeholder={'Radius'}
-        />
-        <Select
-          name={'Featured Toggle'}
-          options={this.feats}
-          value={this.state.feat}
-          onChange={this.onSortChange}
-          searchable={false}
-          multi={false}
-          placeholder={'Sort by'}
-          clearable={false}
         />
       </div>
     )
