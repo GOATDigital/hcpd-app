@@ -24,7 +24,7 @@ const DoctorItemNAAF = (data) => {
 
   let id, age, type_of_practice = [], state, city, address_2, 
   taking_patients, sex, email , designation, last_name, 
-  first_name, has_video, doctor_image, will_meet_with, designation_short, view, types, isMobile;
+  first_name, has_video, doctor_image, will_meet_with, designation_short, view, types, isMobile, agePlusSex;
 
   isMobile = data.view;
   id = data['Id'];
@@ -32,8 +32,11 @@ const DoctorItemNAAF = (data) => {
   types = type_of_practice.join(', ').substring(type_of_practice.length-2);
   first_name = data.FirstName;
   last_name = data.LastName;
-  sex = data.Gender__c;
-  age = new Date().getFullYear() - new Date(data.Birthdate).getFullYear();
+
+  sex = data.Gender__c || '';
+  age = data.Birthdate ? new Date().getFullYear() - new Date(data.Birthdate).getFullYear() : '';
+  agePlusSex = (sex.length > 0 && age > 0) ? `${age}, ${sex}` : `${age} ${sex}`;
+
   has_video = data['URL_for_Peer_Platform__c'];
   doctor_image = data['URL_for_Peer_Platform_Photo__c'];
   address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
@@ -69,7 +72,7 @@ const desktop_layout =  (<div className='doctor-item flex'>
                 </div>
                 {/*sub col 2*/}
                 <div className='col-sub-2'>
-                  <p className='text-center'>{age}, {sex}</p>
+                  <p className='text-center'>{agePlusSex}</p>
                 </div>
                 {/*sub col 3*/}
                 <div className='col-sub-3'>
@@ -115,7 +118,7 @@ const mobile_layout =  (<div className='doctor-item flex mobile'>
      </div>
       <div className='row flex row-props-listing'>
         <ul>
-          <li><label>Age, gender:</label>{age}, {sex}</li>
+          <li><label>Age, gender:</label>{agePlusSex}</li>
           <li><label>Will meet with:</label> {will_meet_with}</li>
           <li><label>Type of Alopecia Areata:</label>{types}</li>
         </ul>
