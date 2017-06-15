@@ -14,6 +14,25 @@ import { selectSortBy } from '../actions/SortActions'
 
 class LocationSearchContainer extends Component {
 
+  rads = [
+    { value: 1, label: '1 miles'},
+    { value: 5, label: '5 miles'},
+    { value: 10, label: '10 miles'},
+    { value: 25, label: '25 miles'},
+    { value: 50, label: '50 miles'},
+    { value: 100, label: '100 miles'},
+    { value: 200, label: '200 miles'},
+  ]
+  
+  feats = [
+    { value: 'Featured', label: 'Featured Listing' },
+    { value: 'All', label: 'Any' },
+  ]
+
+  searchType = ['(cities)']
+
+  isAdressSelected = false
+
   constructor(props) {
     super(props)
     this.state = {
@@ -26,6 +45,8 @@ class LocationSearchContainer extends Component {
 
   onLocationSelect = (location) => {
     const { dispatch } = this.props;
+    this._geoSuggest.blur();
+    this.isAdressSelected = true;
     this.setState({
       location: location.description,
     })
@@ -48,31 +69,25 @@ class LocationSearchContainer extends Component {
     dispatch(selectSortBy(feat));
   }
 
-  rads = [
-    { value: 1, label: '1 miles'},
-    { value: 5, label: '5 miles'},
-    { value: 10, label: '10 miles'},
-    { value: 25, label: '25 miles'},
-    { value: 50, label: '50 miles'},
-    { value: 100, label: '100 miles'},
-    { value: 200, label: '200 miles'},
-  ]
-  
-  feats = [
-    { value: 'Featured', label: 'Featured Listing' },
-    { value: 'All', label: 'Any' },
-  ]
-
-  searchType = ['(cities)']
+  clearLocationField() {
+    this._geoSuggest.clear();
+    this._geoSuggest.blur();
+    const { dispatch } = this.props;
+    this.isAdressSelected = false;
+    dispatch(changeLocation(''));
+  }
 
   render() {
     return (
       <div className="LocationSearchContainer flex">
-          <Geosuggest placeholder={'Search Address'}
+          <Geosuggest ref={el=>this._geoSuggest=el}
+                      placeholder={'Search Address'}
                       value={this.state.location}
                       types={this.searchType}
                       country={'us'}
                       onSuggestSelect={this.onLocationSelect}/>
+          {this.isAdressSelected ? <button className='clear-geo Select-clear-zone' onClick={() => this.clearLocationField()}>×</button> : ''}
+                      
         <Select
           name={'Location Radius'}
           options={this.rads}
