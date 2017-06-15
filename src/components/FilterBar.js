@@ -56,15 +56,6 @@ class FilterBar extends Component {
     )
   }
 
-  renderClearFiltersButton = () => {
-    return (
-      <Button
-        text={'Clear Filters'}
-        onClick={this.clearFilters}
-      />
-    )
-  }
-
   renderTestInput() {
     const { filters } = this.props;
     let keywordFilters = filters.filter(filter => filter.type === 'Keyword');
@@ -129,7 +120,6 @@ class FilterBar extends Component {
           <div className="filterToggleButton">
             {this.renderToggleButton()}
           </div>
-          {/*{this.renderClearFiltersButton()}*/}
         </div>
         <div className="customFilters" style={{display: (this.props.filtersVisible ? 'flex' : 'none')}}>
           {this.renderSelectFilters()}
