@@ -4,42 +4,15 @@ import fetch from 'isomorphic-fetch'
 
 import { GOOGLE_MAPS_API } from '../constants/Config';
 
-export function changeLocation(place_id) {
-  if (!place_id) {
-    let location = {
-      lat: null,
-      long: null,
-    }
+export function changeLocation(placeObject) {
     return dispatch => {
-      dispatch(updateLocation(location));
+      dispatch(updateLocation(placeObject));
     }
-  }
-  return dispatch => {
-    dispatch(getLatLong(place_id));
-  }
-}
-
-function getLatLong(place_id) {
-  return dispatch => {
-    return fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${place_id}&key=${GOOGLE_MAPS_API}`, {mode: 'no-cors'})    
-      .then((response) => {
-        return response.json();
-      }).then((json) => {
-        let lat = json.result.geometry.location.lat;
-        let long = json.result.geometry.location.lng;
-        let loc = {
-          lat: lat,
-          long: long,
-        }
-        dispatch(updateLatLong(loc));
-      })
-      .catch(err => { throw err; });
-  }
 }
 
 function updateLocation(location) {
   return dispatch => {
-    dispatch(updateLatLong(location));
+    dispatch(updateLatLong(location.description));
   }
 }
 

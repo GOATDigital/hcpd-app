@@ -10,8 +10,7 @@ export function location(state = initialState, action) {
   switch (action.type) {
     case types.UPDATE_LAT_LONG:
       return { ...state,
-        lat: action.location.lat,
-        long: action.location.long,
+        location: action.location
       }
     case types.UPDATE_RADIUS:
       return { ...state, 

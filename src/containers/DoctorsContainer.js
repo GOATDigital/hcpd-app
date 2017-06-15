@@ -5,8 +5,8 @@ import MobileDoctors from '../components/MobileDoctors';
 import Doctors from '../components/Doctors';
 import { CLIENT_ID } from '../constants/Config';
 
-//DB specific read/compare mathods
-import {valueComparator, valueExtractor, keyWordFilters, checkboxTypeFilter} from '../constants/item-design/naaf87561';
+//DB specific read/compare methods
+import {valueComparator, valueExtractor, keyWordFilters, checkboxTypeFilter, addressFilter} from '../constants/item-design/naaf87561';
 
 import {flatten} from 'lodash';
 
@@ -29,10 +29,10 @@ class DoctorsContainer extends Component {
 }
 
 const getFilteredListings = (listings, activeFilters, filters, location, activeKeyWordFilters, settings, sortBy) => {
-  let locationFiltered = locationListings(listings, location);
-  let sorted = sortListings(locationFiltered, sortBy);
+
+  let sorted = sortListings(listings, sortBy);
   let keyWordFiltered = keyWordFilters(sorted, activeKeyWordFilters, settings.filters);
-  let filtered = keyWordFiltered;
+  let filtered = addressFilter(keyWordFiltered, location.location)
 
   const filterGroups = _.partition(activeFilters.filter(f => f), i => filters[i].type === "Checkbox") || [[],[]];
 
@@ -80,22 +80,6 @@ const filterListings = (listings, filter) => {
     if(itemValue == null) return false;
     return valueComparator[filter.name](itemValue, filter.value);
   })
-}
-
-const locationListings = (listings, location) => {
-  if (location.lat && location.long) {
-    let radius = location.radius.value * 1609.34;
-    return listings.filter((listing) => {
-      if (listing.lat && listing.long) {
-        return geolib.isPointInCircle(
-          {latitude: listing.lat, longitude: listing.long},
-          {latitude: location.lat, longitude: location.long},
-          radius
-        )
-      }
-    })
-  }
-  return listings;
 }
 
 function mapStateToProps(state) {

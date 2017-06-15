@@ -25,12 +25,11 @@ class LocationSearchContainer extends Component {
   }
 
   onLocationSelect = (location) => {
-    console.log(location)
-    // const { dispatch } = this.props;
-    // this.setState({
-    //   location: location,
-    // })
-    // dispatch(changeLocation(location.value));
+    const { dispatch } = this.props;
+    this.setState({
+      location: location.description,
+    })
+    dispatch(changeLocation(location));
   }
 
   onRadiusChange = (radius) => {
@@ -64,11 +63,15 @@ class LocationSearchContainer extends Component {
     { value: 'All', label: 'Any' },
   ]
 
+  searchType = ['(cities)']
+
   render() {
     return (
       <div className="LocationSearchContainer flex">
           <Geosuggest placeholder={'Search Address'}
                       value={this.state.location}
+                      types={this.searchType}
+                      country={'us'}
                       onSuggestSelect={this.onLocationSelect}/>
         <Select
           name={'Location Radius'}
