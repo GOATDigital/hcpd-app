@@ -2,23 +2,9 @@
 
 import React from 'react';
 import { API_ADDRESS, STATIC_ASSETS } from '../../constants/Config';
+import {specificFilterTypes} from '../../constants/item-design/naaf87561';
 
 const EXTERNAL_URL = 'https://naaf.org/enroll-your-child-into-the-mentee-program?mentor=';
-
-const has_types = 
-  [{
-    code: "Has_AA_patchy_loss__c",
-    title: "Alopecia Areata - Patchy"
-  },{
-    code:"Has_AT__c",
-    title:"Alopecia Totalis"
-  },{
-    code:"Has_AU__c",
-    title:"Alopecia Universalis"
-  },{
-    code:"Has_Alopecia__c",
-    title:"Alopecia Areata"
-  }];
 
 const DoctorItemNAAF = (data) => {
 
@@ -28,7 +14,7 @@ const DoctorItemNAAF = (data) => {
 
   isMobile = data.view;
   id = data['Id'];
-  has_types.forEach(t => { if(data[t.code]){ type_of_practice.push(t.title);}});
+  specificFilterTypes.forEach(t => { if(data[t.value]){ type_of_practice.push(t.label);}});
   types = type_of_practice.join(', ').substring(type_of_practice.length-2);
   first_name = data.FirstName;
   last_name = data.LastName;

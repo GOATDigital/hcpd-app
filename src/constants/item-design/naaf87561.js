@@ -40,12 +40,8 @@ export const addressFilter = (listings, curentAddress) => {
 /**
  * Comparing for multiple-selection filters
  */
-export const checkboxTypeFilter = (filterSet, item) => {
-  return _.some(filterSet, (filter) => {
-    console.log(valueExtractor(item, filter.name), filter.value)
-    return valueComparator[filter.name](valueExtractor(item, filter.name), filter.value);
-  })
-}
+export const checkboxTypeFilter = (filterSet, item) => _.some(filterSet, (filter) => valueComparator[filter.name](valueExtractor(item, filter.name), filter.value))
+
 
 /**
  * Search for text in item text fields
@@ -72,31 +68,32 @@ export const keyWordFilters = (listings, activeKeyWordFilters, filters) => {
 
 const concatProps = (item) => [item['FirstName'], item['LastName'], item['Email'], item['Email'], item['Bio__c']].join ` `;
 
-export const initialState = {
-  1: {
-    name: 'type_ofalopecia',
-    type: 'Checkbox',
-    label: 'Alopecia Areata - Patchy',
-    value: 'Has_AA_patchy_loss__c'
-  },
-  2: {
-    name: 'type_ofalopecia',
-    type: 'Checkbox',
-    label: 'Alopecia Totalis',
-    value: 'Has_AT__c'
-  },
-  3: {
-    name: 'type_ofalopecia',
-    type: 'Checkbox',
-    label: 'Alopecia Universalis',
-    value: 'Has_AU__c'
-  },
-  4: {
-    name: 'type_ofalopecia',
-    type: 'Checkbox',
-    label: 'Alopecia Areata',
-    value: 'Has_Alopecia__c'
-  },
+export const specificFilterTypes = 
+  [{
+    value: "Has_AA_patchy_loss__c",
+    label: "Alopecia Areata - Patchy"
+  },{
+    value:"Has_AT__c",
+    label:"Alopecia Totalis"
+  },{
+    value:"Has_AU__c",
+    label:"Alopecia Universalis"
+  },{
+    value:"Has_Alopecia__c",
+    label:"Alopecia Areata"
+  }];
+
+let initialStateAA = {};
+
+specificFilterTypes.map(i => {
+  i.type = 'Checkbox';
+  i.name = 'type_ofalopecia';
+  return i
+}).forEach((item, index) => {
+  initialStateAA[index+1] = item
+})
+
+const initialStateGender = {
   6: {
     name: 'sex',
     value: 'Male'
@@ -106,3 +103,5 @@ export const initialState = {
     value: 'Female'
   }
 };
+
+export const initialState = Object.assign({}, initialStateAA, initialStateGender)
