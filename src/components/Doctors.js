@@ -11,30 +11,6 @@ import LoadingWheel from './LoadingWheel';
 
 import { clearFilters } from '../actions/FilterActions';
 import { updateKeyWords } from '../actions/KeyWordFilterActions';
-/*
-let itemsMock = Array(10).fill(111).map((i, index) => {return {key:index, value:i}})
-let calls = 1;
- items = itemsMock
-*/
-    /*const loadFunc = () => {
-      calls++;
-
-      let ln = this.items.length;
-       this.items.push({
-        key: ln + calls,
-        value: ln  + calls
-      });
-       console.log('loadFunc called', calls, this.items);
-    }
-
-   <InfiniteScroll
-            pageStart={0}
-            loadMore={loadFunc}
-            hasMore={true}
-            loader={<div className="loader">Loading ...</div>}>
-            { this.items.map(i => <div key={Math.random(1)}> <NoResults/> {i.value}</div>)}
-        </InfiniteScroll>*/
-
 
 class Doctors extends Component {
 
