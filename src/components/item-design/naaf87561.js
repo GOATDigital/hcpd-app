@@ -8,16 +8,16 @@ const EXTERNAL_URL = 'https://naaf.org/enroll-your-child-into-the-mentee-program
 const has_types = 
   [{
     code: "Has_AA_patchy_loss__c",
-    title: "Alopecia Areata"
+    title: "Alopecia Areata - Patchy"
   },{
     code:"Has_AT__c",
-    title:"Alopecia Universalis"
+    title:"Alopecia Totalis"
   },{
     code:"Has_AU__c",
-    title:"Alopecia Areata - Patchy"
+    title:"Alopecia Universalis"
   },{
     code:"Has_Alopecia__c",
-    title:"Alopecia Totalis"
+    title:"Alopecia Areata"
   }];
 
 const DoctorItemNAAF = (data) => {

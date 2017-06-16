@@ -42,6 +42,7 @@ export const addressFilter = (listings, curentAddress) => {
  */
 export const checkboxTypeFilter = (filterSet, item) => {
   return _.some(filterSet, (filter) => {
+    console.log(valueExtractor(item, filter.name), filter.value)
     return valueComparator[filter.name](valueExtractor(item, filter.name), filter.value);
   })
 }
@@ -75,25 +76,25 @@ export const initialState = {
   1: {
     name: 'type_ofalopecia',
     type: 'Checkbox',
-    label: 'Alopecia Areata',
+    label: 'Alopecia Areata - Patchy',
     value: 'Has_AA_patchy_loss__c'
   },
   2: {
     name: 'type_ofalopecia',
     type: 'Checkbox',
-    label: 'Alopecia Universalis',
+    label: 'Alopecia Totalis',
     value: 'Has_AT__c'
   },
   3: {
     name: 'type_ofalopecia',
     type: 'Checkbox',
-    label: 'Alopecia Areata - Patchy',
+    label: 'Alopecia Universalis',
     value: 'Has_AU__c'
   },
   4: {
     name: 'type_ofalopecia',
     type: 'Checkbox',
-    label: 'Alopecia Totalis',
+    label: 'Alopecia Areata',
     value: 'Has_Alopecia__c'
   },
   6: {

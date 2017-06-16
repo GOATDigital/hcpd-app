@@ -27,25 +27,25 @@ export const filters = [
         id: 1,
         type: 'Checkbox',
         value: 'Has_AA_patchy_loss__c',
-        label: 'Alopecia Areata',
+        label: 'Alopecia Areata - Patchy',
       },
       {
         id: 2,
         type: 'Checkbox',
         value: 'Has_AT__c',
-        label: 'Alopecia Universalis',
+        label: 'Alopecia Totalis',
       },
       {
         id: 3,
         type: 'Checkbox',
         value: 'Has_AU__c',
-        label: 'Alopecia Areata - Patchy',
+        label: 'Alopecia Universalis',
       },
       {
         id: 4,
         type: 'Checkbox',
         value: 'Has_Alopecia__c',
-        label: 'Alopecia Totalis',
+        label: 'Alopecia Areata',
       }
     ]
   },
