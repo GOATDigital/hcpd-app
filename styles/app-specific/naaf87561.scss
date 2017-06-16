@@ -16,7 +16,6 @@ $lightGray: rgb(155, 155, 155);
   font-size: 18px;
   font-size: 1rem;
   position: relative;
-  width: 50%;
   margin: 0 auto;
   text-align: left;
 }
@@ -79,7 +78,7 @@ $lightGray: rgb(155, 155, 155);
 }
 div.naaf87561 {
     color: #5c5b5c;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif  !important;
     /* table header columns */
     .col-0 {
         flex-direction: column;
@@ -107,7 +106,7 @@ div.naaf87561 {
         }
     }
     .geosuggest {
-        flex: 0 0 60%;
+        width: 65%;
         padding: 0rem 5px;
         @media (max-width: $breakpoint-tablet) {
             flex: 100%;
@@ -151,7 +150,7 @@ div.naaf87561 {
         flex: 0 0 15%;
     }
     .col-main-2 {
-        flex: 0 0 55%;
+        flex: 0 0 70%;
     }
     .col-main-3 {
         flex: 0 0 15%;
@@ -166,16 +165,17 @@ div.naaf87561 {
         .col p {
             color: #5c5c5c;
             text-transform: uppercase;
-            sfont-size: 14px;
+            font-size: 14px;
         }
     }
     .col-sub-1 {
-        flex: 0 0 43%;
+        flex: 0 0 30%;
         text-align: left;
     }
     .col-sub-2,
-    .col-sub-3 {
-        flex: 0 0 26%;
+    .col-sub-3,
+    .col-sub-4 {
+        flex: 0 0 23%;
     }
     /* Header */
     h1 {
@@ -222,7 +222,7 @@ div.naaf87561 {
     }
     .filterToggleButton button {
         color: $blue;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif !important;
         padding: 10px 0px;
     }
     .link-button {
@@ -233,7 +233,7 @@ div.naaf87561 {
         width: 150px;
         border-radius: 3px;
         cursor: pointer;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif  !important;
         font-size: 14px;
         outline: none;
     }
@@ -242,6 +242,7 @@ div.naaf87561 {
         text-align: left;
         line-height: 26px;
         font-size: 16px !important;
+        margin-top: 20px;
     }
     .video-link {
         width: 130px;
@@ -344,15 +345,16 @@ div.naaf87561 {
         font-size: 14px;
     }
     .doctor-image {
-        width: 150px;
-        height: 150px;
-        display: block;
+        width: 140px;
+        height: 140px;
         border-radius: 70px;
         background: #eee;
         overflow: hidden;
+        margin: 0 20px 0 0px;
         @media (max-width: 1150px) {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
+            margin: 0 20px 0 0px;
         }
     }
     .image-wrapper {
@@ -364,8 +366,8 @@ div.naaf87561 {
         font-weight: 400;
     }
     .address-line {
-        font-weight: 400;
-        color: $lightGray;
+        font-weight: 400 !important;
+        color: $lightGray !important;
     }
     .text-center {
         text-align: center;

@@ -78,12 +78,11 @@ const desktop_layout =  (<div className='doctor-item flex'>
                 <div className='col-sub-3'>
                   <p className='text-center'>{will_meet_with}</p>
                 </div>
+                <div className='col-sub-4'>
+                    <p>{types}</p>
+                </div>
             </div>
             <p className='designation-block'>{designation}</p>
-        </div>
-      {/*colum 3*/}
-      <div className='col col-main-3'>
-          <p>{types}</p>
         </div>
       {/*colum 4*/}
         <div className='col col-main-4'>
