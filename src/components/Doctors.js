@@ -14,8 +14,6 @@ import { updateKeyWords } from '../actions/KeyWordFilterActions';
 
 class Doctors extends Component {
 
- 
-
   updateDimensions = () => {
       this.setState({width: window.innerWidth});
   }
@@ -47,7 +45,12 @@ class Doctors extends Component {
       if(this.props.loading){
           return <LoadingWheel />;
       } else {
+        if(!this.props.isError){
           return <div className='doctor-item no-results flex'><NoResults/></div>;
+        } else {
+          return <div className='doctor-item no-results flex loading-error'><p>Failed to load results.</p></div>;
+        }
+          
       }
 
     }
@@ -65,8 +68,6 @@ class Doctors extends Component {
       filteredListings
     } = this.props;
     
-
-
     const isNaaf = (__APPID__.trim() === 'naaf87561');
 
     return (

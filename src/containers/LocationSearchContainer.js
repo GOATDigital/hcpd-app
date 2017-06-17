@@ -34,6 +34,7 @@ class LocationSearchContainer extends Component {
       isLoadingExternally: false,
       location: this.props.location,
       radius: { value: 25, label: '25 miles' },
+      isAdressSelected: false,
     }
   }
 
@@ -42,7 +43,8 @@ class LocationSearchContainer extends Component {
     this._geoSuggest.blur();
     this.isAdressSelected = true;
     this.setState({
-      location: location.description,
+      location: location,
+      isAdressSelected: true,
     })
     dispatch(changeLocation(location));
   }
@@ -56,14 +58,21 @@ class LocationSearchContainer extends Component {
   }
 
   clearLocationField() {
+      this.setState({
+      isAdressSelected: false,
+    })
+
     this._geoSuggest.clear();
     this._geoSuggest.blur();
     const { dispatch } = this.props;
-    this.isAdressSelected = false;
+    
     dispatch(changeLocation(''));
   }
 
   render() {
+
+    let clearButtonEl = (this.state.isAdressSelected ? <button className='clear-geo Select-clear-zone' onClick={() => this.clearLocationField()}>×</button> : '');
+
     return (
       <div className="LocationSearchContainer flex">
           <Geosuggest ref={el=>this._geoSuggest=el}
@@ -72,8 +81,7 @@ class LocationSearchContainer extends Component {
                       types={this.searchType}
                       country={'us'}
                       onSuggestSelect={this.onLocationSelect}/>
-          {this.isAdressSelected ? <button className='clear-geo Select-clear-zone' onClick={() => this.clearLocationField()}>×</button> : ''}
-                      
+            {clearButtonEl}
         <Select
           name={'Location Radius'}
           options={this.rads}

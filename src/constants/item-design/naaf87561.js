@@ -4,6 +4,8 @@ import {
   flatten
 } from 'lodash';
 
+import geolib from 'geolib';
+
 /**
  * Returns correct property bsed on the filter name
  */
@@ -43,6 +45,30 @@ export const addressFilter = (listings, curentAddress) => {
 export const checkboxTypeFilter = (filterSet, item) => _.some(filterSet, (filter) => valueComparator[filter.name](valueExtractor(item, filter.name), filter.value))
 
 
+/**
+ * Using geolib 
+ * @param {*} listing 
+ * @param {*} locObject 
+ */
+
+export const filterByGeoDistance = (listing, locObject) => {
+
+  if (!locObject.location) return listing;
+
+  return listing.filter(item => {
+    if (!item.geocode) return false;
+    
+    //TODO, should be ES6 way to map here
+    return geolib.getDistance({
+        latitude: item.geocode.lat,
+      longitude: item.geocode.lng
+      }, {
+      latitude: locObject.location.location.lat,
+      longitude: locObject.location.location.lng
+    }) <= locObject.radius.value * 1000
+
+  })
+}
 /**
  * Search for text in item text fields
  * @param {*} listings 

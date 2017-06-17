@@ -2,7 +2,10 @@ import * as types from '../constants/ActionTypes';
 
 import fetch from 'isomorphic-fetch'
 
-import { CLIENT_ID, API_ADDRESS } from '../constants/Config';
+import {
+  CLIENT_ID,
+  API_ADDRESS
+} from '../constants/Config';
 
 
 
@@ -20,24 +23,45 @@ function fetchDoctorsSuccess(json) {
   }
 }
 
-function mapPropsToFilters(json){
+function fetchDoctorsError(error) {
+  console.error(error);
+  return {
+    type: types.FETCH_DOCTORS_FAILURE,
+  }
+}
+
+
+function mapPropsToFilters(json) {
   json.map(i => {
-    return i;})
+    return i;
+  })
   return json;
 }
 
 export function fetchDoctors(siteID) {
-  
+
   const START_PAGE = '';
 
   return dispatch => {
 
     dispatch(fetchDoctorsRequest(siteID))
-    return fetch(`${API_ADDRESS}/api/listings?siteId=${siteID}&input=new&isTakingPatients=true&distance=10&page=${START_PAGE}`, {
-      method: 'GET'
-    }, { mode : 'no-cors'})
-      .then(response => response.json())
-      .then(json => 
+
+    const API_FULL_PATH = `${API_ADDRESS}/api/listings?siteId=${siteID}&input=new&isTakingPatients=true&distance=10&page=${START_PAGE}`;
+    return fetch(API_FULL_PATH, {
+        method: 'GET'
+      }, {
+        mode: 'no-cors'
+      })
+      .then(response => {
+        if (response.status >= 400) {
+          //throw new Error("Bad response from server");
+          dispatch(fetchDoctorsError(response))
+          return [];
+        } else {
+          return response.json();
+        }
+      })
+      .then(json =>
         dispatch(fetchDoctorsSuccess(json))
       )
   }

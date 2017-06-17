@@ -18,7 +18,14 @@ export default function doctors(state = initialState, action) {
     case types.FETCH_DOCTORS_SUCCESS:
       return { ...state,
         listings: action.doctors,
-        loading: false
+        loading: false,
+        isError: false
+      }
+    case types.FETCH_DOCTORS_FAILURE:
+      return { ...state,
+        listings: [],
+        loading: false,
+        isError: true
       }
     case types.FILTER_DOCTORS_START:
       return { ...state, 

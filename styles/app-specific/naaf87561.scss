@@ -117,11 +117,12 @@ div.naaf87561 {
         .geosuggest__input {
             border-radius: 4px;
             border: 1px solid #D3D3D3;
-            height: 42px !important;
+            height: 50px !important;
             font-size: 16px;
             width: 100%;
             padding: 5px;
             color: #aaa;
+            box-sizing: border-box !important;
         }
         .geosuggest__suggests {
             max-height: 198px;
@@ -291,10 +292,11 @@ div.naaf87561 {
         background: transparent;
         border: none;
         outline: none;
+        font-size: 18px;
         @media (max-width: $breakpoint-tablet) {
             position: initial;
             margin-left: calc(100% - 80px);
-            margin-top: -85px;
+            margin-top: -80px;
             z-index: 10000;
             float: right;
         }

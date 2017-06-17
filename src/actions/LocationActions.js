@@ -12,7 +12,7 @@ export function changeLocation(placeObject) {
 
 function updateLocation(location) {
   return dispatch => {
-    dispatch(updateLatLong(location.description));
+    dispatch(updateLatLong(location));
   }
 }
 
