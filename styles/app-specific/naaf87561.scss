@@ -111,7 +111,7 @@ div.naaf87561 {
         padding: 0rem 5px;
         @media (max-width: $breakpoint-tablet) {
             flex: 100%;
-            padding: 1rem 5px;
+            padding: 1rem 5px 1px 5px;
             margin: 0 1rem;
         }
         .geosuggest__input {
@@ -293,10 +293,11 @@ div.naaf87561 {
         border: none;
         outline: none;
         font-size: 18px;
+        color: #4A4A4A;
         @media (max-width: $breakpoint-tablet) {
             position: initial;
             margin-left: calc(100% - 80px);
-            margin-top: -80px;
+            margin-top: -60px;
             z-index: 10000;
             float: right;
         }

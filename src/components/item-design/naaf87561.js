@@ -1,7 +1,7 @@
 /* NAAF design */
 
 import React from 'react';
-import { API_ADDRESS, STATIC_ASSETS } from '../../constants/Config';
+import { API_ADDRESS } from '../../constants/Config';
 import {specificFilterTypes} from '../../constants/item-design/naaf87561';
 
 const EXTERNAL_URL = 'https://naaf.org/enroll-your-child-into-the-mentee-program?mentor=';
