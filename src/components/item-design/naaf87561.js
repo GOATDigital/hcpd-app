@@ -1,119 +1,140 @@
 /* NAAF design */
 
-import React from 'react';
+import React, { Component } from 'react';
 import { API_ADDRESS } from '../../constants/Config';
 import {specificFilterTypes} from '../../constants/item-design/naaf87561';
 
 const EXTERNAL_URL = 'https://naaf.org/enroll-your-child-into-the-mentee-program?mentor=';
 
-const DoctorItemNAAF = (data) => {
 
-  let id, age, type_of_practice = [], state, city, address_2, 
-  taking_patients, sex, email , designation, last_name, 
-  first_name, has_video, doctor_image, will_meet_with, designation_short, view, types, isMobile, agePlusSex;
+class DoctorItemNAAF extends Component {
 
-  isMobile = data.view;
-  id = data['Id'];
-  specificFilterTypes.forEach(t => { if(data[t.value]){ type_of_practice.push(t.label);}});
-  types = type_of_practice.join(', ').substring(type_of_practice.length-2);
-  first_name = data.FirstName;
-  last_name = data.LastName;
+  constructor(props) {
+        super(props);
+        this.state = {dimensions: {}};
+        this.onImgLoad = this.onImgLoad.bind(this);
+    }
 
-  sex = data.Gender__c || '';
-  age = data.Birthdate ? new Date().getFullYear() - new Date(data.Birthdate).getFullYear() : '';
-  agePlusSex = (sex.length > 0 && age > 0) ? `${age}, ${sex}` : `${age} ${sex}`;
+   onImgLoad({target:img}) {
+        this.setState({dimensions:{height:img.offsetHeight,
+                                   width:img.offsetWidth}});
+    }
 
-  has_video = data['URL_for_Peer_Platform__c'];
-  doctor_image = data['URL_for_Peer_Platform_Photo__c'];
-  address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
-  designation = data.Description || data.Bio__c;
-  
-  const meetChildren = (data.Mentor_Kids__c ? 'Children' : '');
-  const meetParents = (data.Mentor_Parents__c ? 'Parents' : '');
-  will_meet_with = (meetChildren.length > 0 && meetParents.length > 0) ? `${meetChildren}, ${meetParents}` : `${meetChildren} ${meetParents}`;
+  render() {
 
-  designation_short = designation.slice(0, 150);
+      const data = this.props;
 
-const handleClick = () => {
-    window.location = `${EXTERNAL_URL}${id}`;
-};
+      let id, age, type_of_practice = [], state, city, address_2, 
+      taking_patients, sex, email , designation, last_name, 
+      first_name, has_video, doctor_image, will_meet_with, designation_short, view, types, isMobile, agePlusSex;
 
-const desktop_layout =  (<div className='doctor-item flex'>
-        {/*1 column*/}
-        <div className='col col-main-1'>
-        {doctor_image ? <div className='inline doctor-image'>
-          <span className='image-wrapper'><img src={`${doctor_image}`} /></span>
-        </div>: ''}
-        {has_video ? <a href={has_video} target="_blank" className='video-link'>
-           <span dangerouslySetInnerHTML={{__html: svg_play}} /> Watch video</a> : ''}
-       </div>
-       {/*colum 2*/}
-       <div className='col col-main-2'>
+      isMobile = data.view;
+      id = data['Id'];
+      specificFilterTypes.forEach(t => { if(data[t.value]){ type_of_practice.push(t.label);}});
+      types = type_of_practice.join(', ').substring(type_of_practice.length-2);
+      first_name = data.FirstName;
+      last_name = data.LastName;
 
-            <div className='row table-details flex'>
-                {/*sub col 1*/}
-                <div className='col-sub-1'>
+      sex = data.Gender__c || '';
+      age = data.Birthdate ? new Date().getFullYear() - new Date(data.Birthdate).getFullYear() : '';
+      agePlusSex = (sex.length > 0 && age > 0) ? `${age}, ${sex}` : `${age} ${sex}`;
+
+      has_video = data['URL_for_Peer_Platform__c'];
+      doctor_image = data['URL_for_Peer_Platform_Photo__c'];
+      address_2 = (data.MailingCity ? data.MailingCity : '') + ', ' + (data.MailingState ? data.MailingState : '');
+      designation = data.Description || data.Bio__c;
+      
+      const meetChildren = (data.Mentor_Kids__c ? 'Children' : '');
+      const meetParents = (data.Mentor_Parents__c ? 'Parents' : '');
+      will_meet_with = (meetChildren.length > 0 && meetParents.length > 0) ? `${meetChildren}, ${meetParents}` : `${meetChildren} ${meetParents}`;
+
+      designation_short = designation.slice(0, 150);
+
+      const handleClick = () => {
+          window.location = `${EXTERNAL_URL}${id}`;
+      };
+
+      const imageDimentionsClass = this.state.dimensions.width > this.state.dimensions.height ? 'horisontal' : 'vertical';
+      const imageWrapperClass = `inline doctor-image ${imageDimentionsClass}`;
+
+      const desktop_layout =  (<div className='doctor-item flex'>
+              {/*1 column*/}
+              <div className='col col-main-1'>
+              {doctor_image ? <div className={imageWrapperClass}>
+                <span className='image-wrapper'><img src={`${doctor_image}`} onLoad={this.onImgLoad}/></span>
+              </div>: ''}
+              {has_video ? <a href={has_video} target="_blank" className='video-link'>
+                <span dangerouslySetInnerHTML={{__html: svg_play}} /> Watch video</a> : ''}
+            </div>
+            {/*colum 2*/}
+            <div className='col col-main-2'>
+
+                  <div className='row table-details flex'>
+                      {/*sub col 1*/}
+                      <div className='col-sub-1'>
+                        <p className='name-line'>{first_name} {last_name}</p>
+                        <p className='address-line'>{address_2}</p>
+                      </div>
+                      {/*sub col 2*/}
+                      <div className='col-sub-2'>
+                        <p className='text-center'>{agePlusSex}</p>
+                      </div>
+                      {/*sub col 3*/}
+                      <div className='col-sub-3'>
+                        <p className='text-center'>{will_meet_with}</p>
+                      </div>
+                      <div className='col-sub-4'>
+                          <p>{types}</p>
+                      </div>
+                  </div>
+                  <p className='designation-block'>{designation}</p>
+              </div>
+            {/*colum 4*/}
+              <div className='col col-main-4'>
+                <button className={'link-button'} onClick={handleClick}>Connect with {first_name}</button>
+              </div>
+          </div>);
+
+          
+      const mobile_layout =  (<div className='doctor-item flex mobile'>
+
+            <div className='row flex no-step'>
+        
+              <div className='col col-mobile-1'>
+                  {doctor_image ? <div className={imageWrapperClass}>
+                    <span className='image-wrapper'><img src={`${doctor_image}`} onLoad={this.onImgLoad}/></span>
+                  </div>: ''}
+                </div>
+                <div className='col-mobile-2'>
                   <p className='name-line'>{first_name} {last_name}</p>
                   <p className='address-line'>{address_2}</p>
                 </div>
-                {/*sub col 2*/}
-                <div className='col-sub-2'>
-                  <p className='text-center'>{agePlusSex}</p>
+              </div>
+            <div className='row flex'>
+              <div className='col col-mobile-1'></div>
+              <div className='col-mobile-2'>
+              {has_video ? <a href={has_video} target="_blank" className='video-link'>
+                <span dangerouslySetInnerHTML={{__html: svg_play}} /> Watch video</a> : ''}
                 </div>
-                {/*sub col 3*/}
-                <div className='col-sub-3'>
-                  <p className='text-center'>{will_meet_with}</p>
-                </div>
-                <div className='col-sub-4'>
-                    <p>{types}</p>
-                </div>
-            </div>
-            <p className='designation-block'>{designation}</p>
-        </div>
-      {/*colum 4*/}
-        <div className='col col-main-4'>
-          <button className={'link-button'} onClick={handleClick}>Connect with {first_name}</button>
-        </div>
-    </div>);
-
-    
-const mobile_layout =  (<div className='doctor-item flex mobile'>
-
-      <div className='row flex no-step'>
-  
-        <div className='col col-mobile-1'>
-            {doctor_image ? <div className='inline doctor-image'>
-              <span className='image-wrapper'><img src={`${doctor_image}`} /></span>
-            </div>: ''}
           </div>
-          <div className='col-mobile-2'>
-            <p className='name-line'>{first_name} {last_name}</p>
-            <p className='address-line'>{address_2}</p>
+            <div className='row flex'>
+              <p className='designation-block'>{designation_short}</p>
           </div>
-        </div>
-      <div className='row flex'>
-         <div className='col col-mobile-1'></div>
-         <div className='col-mobile-2'>
-        {has_video ? <a href={has_video} target="_blank" className='video-link'>
-          <span dangerouslySetInnerHTML={{__html: svg_play}} /> Watch video</a> : ''}
+            <div className='row flex row-props-listing'>
+              <ul>
+                <li><label>Age, gender:</label>{agePlusSex}</li>
+                <li><label>Will meet with:</label> {will_meet_with}</li>
+                <li><label>Type of Alopecia Areata:</label>{types}</li>
+              </ul>
           </div>
-     </div>
-      <div className='row flex'>
-        <p className='designation-block'>{designation_short}</p>
-     </div>
-      <div className='row flex row-props-listing'>
-        <ul>
-          <li><label>Age, gender:</label>{agePlusSex}</li>
-          <li><label>Will meet with:</label> {will_meet_with}</li>
-          <li><label>Type of Alopecia Areata:</label>{types}</li>
-        </ul>
-     </div>
-      <div className='row flex'>
-          <button className={'link-button'} onClick={handleClick}>Connect with {first_name}</button>
-     </div>
-     </div>);
+            <div className='row flex'>
+                <button className={'link-button'} onClick={handleClick}>Connect with {first_name}</button>
+          </div>
+          </div>);
 
+      
       return isMobile ? mobile_layout : desktop_layout;
+  }
 }
 
 export default DoctorItemNAAF;

@@ -1,84 +1,100 @@
 /* NAAF design */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-
 $breakpoint-tablet: 960px;
 $breakpoint-mobile: 650px;
-$lightestGray: rgba(0, 0, 0, 0.2);
+$lightestGray: rgba(0,
+0,
+0,
+0.2);
 $blue: #65d1db;
-$lightGray: rgb(155, 155, 155);
+$lightGray: rgb(155,
+155,
+155);
 
 /**
  * The geosuggest module
  * NOTE: duplicated font-sizes' are for browsers which don't support rem (only IE 8)
  */
+
 .geosuggest {
-  font-size: 18px;
-  font-size: 1rem;
-  position: relative;
-  margin: 0 auto;
-  text-align: left;
+    font-size: 18px;
+    font-size: 1rem;
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
 }
+
 .geosuggest__input {
-  width: 100%;
-  border: 1px solid transparent;
-  padding: .5em 1em;
-  -webkit-transition: border 0.2s, box-shadow 0.2s;
-          transition: border 0.2s, box-shadow 0.2s;
+    width: 100%;
+    border: 1px solid transparent;
+    padding: .5em 1em;
+    -webkit-transition: border 0.2s, box-shadow 0.2s;
+    transition: border 0.2s, box-shadow 0.2s;
 }
+
 .geosuggest__input:focus {
-  box-shadow: 0 0 0 transparent;
+    box-shadow: 0 0 0 transparent;
 }
+
 .geosuggest__suggests {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  max-height: 25em;
-  padding: 0;
-  margin-top: -1px;
-  background: #fff;
-  border-top-width: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  list-style: none;
-  z-index: 5;
-  -webkit-transition: max-height 0.2s, border 0.2s;
-          transition: max-height 0.2s, border 0.2s;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 25em;
+    padding: 0;
+    margin-top: -1px;
+    background: #fff;
+    border-top-width: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    list-style: none;
+    z-index: 5;
+    -webkit-transition: max-height 0.2s, border 0.2s;
+    transition: max-height 0.2s, border 0.2s;
 }
+
 .geosuggest__suggests--hidden {
-  max-height: 0;
-  overflow: hidden;
-  border-width: 0;
+    max-height: 0;
+    overflow: hidden;
+    border-width: 0;
 }
+
 
 /**
  * A geosuggest item
  */
+
 .geosuggest__item {
-  font-size: 18px;
-  font-size: 1rem;
-  padding: .5em .65em;
-  cursor: pointer;
+    font-size: 18px;
+    font-size: 1rem;
+    padding: .5em .65em;
+    cursor: pointer;
 }
+
 .geosuggest__item:hover,
 .geosuggest__item:focus {
-  background: #f5f5f5;
+    background: #f5f5f5;
 }
+
 .geosuggest__item--active {
-  background: #267dc0;
-  color: #fff;
+    background: #267dc0;
+    color: #fff;
 }
+
 .geosuggest__item--active:hover,
 .geosuggest__item--active:focus {
-  background: #ccc;
+    background: #ccc;
 }
+
 .geosuggest__suggests.geosuggest__suggests--hidden {
     display: none !important;
 }
+
 div.naaf87561 {
     color: #5c5b5c;
-    font-family: 'Roboto', sans-serif  !important;
+    font-family: 'Roboto', sans-serif !important;
     /* table header columns */
     .col-0 {
         flex-direction: column;
@@ -131,22 +147,20 @@ div.naaf87561 {
             position: absolute;
             z-index: 1000;
             .geosuggest__item {
-                background-color:#fff;
+                background-color: #fff;
                 color: #333;
                 cursor: pointer;
                 display: block;
                 padding: 8px 10px;
                 &:hover {
-                    background:rgb(101, 209, 218);
+                    background: rgb(101, 209, 218);
                 }
                 &--active {
-                    background:rgb(101, 209, 218);
+                    background: rgb(101, 209, 218);
                 }
             }
         }
-        
     }
-
     /* table columns */
     .col-main-1 {
         flex: 0 0 15%;
@@ -235,7 +249,7 @@ div.naaf87561 {
         width: 150px;
         border-radius: 3px;
         cursor: pointer;
-        font-family: 'Roboto', sans-serif  !important;
+        font-family: 'Roboto', sans-serif !important;
         font-size: 14px;
         outline: none;
     }
@@ -258,10 +272,10 @@ div.naaf87561 {
         line-height: 180%;
         &:hover {
             color: $blue;
-             svg g#Mobile_Close_Filter {
+            svg g#Mobile_Close_Filter {
                 stroke: $blue;
             }
-        }   
+        }
         span {
             float: left;
         }
@@ -285,7 +299,7 @@ div.naaf87561 {
         margin-bottom: 0;
         font-size: 16px;
     }
-    .clear-geo.Select-clear-zone{
+    .clear-geo.Select-clear-zone {
         width: 47px;
         position: relative;
         left: -70px;
@@ -361,11 +375,12 @@ div.naaf87561 {
             margin: 0 20px 0 0px;
         }
     }
-    .image-wrapper {
-        img {
+        .vertical img {
             width: 100%;
         }
-    }
+        .horisontal img {
+            height: 100%;
+        }
     .name-line {
         font-weight: 400;
     }
@@ -429,15 +444,15 @@ div.naaf87561 {
             max-width: 100%;
             font-size: 14px !important;
         }
-         .link-button {
+        .link-button {
             padding: 20px 30px;
             min-width: 50%;
-             @media (max-width: $breakpoint-mobile) {
+            @media (max-width: $breakpoint-mobile) {
                 min-width: 100%;
             }
-         }
-         .name-line {
+        }
+        .name-line {
             text-align: left;
-         }
+        }
     }
 }
