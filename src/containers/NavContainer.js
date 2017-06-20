@@ -20,11 +20,10 @@ class NavContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  const { authed, environment, navigator } = state;
+  const { environment, navigator } = state;
   const { isMobile } = environment;
 
   return {
-    authed,
     isMobile,
     navigator,
   };

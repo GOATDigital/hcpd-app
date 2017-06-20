@@ -9,8 +9,6 @@ This repo contains the front end ui for the [Health Care Provider Directory API]
 
 For now there are 2 app_ids available: `naaf87561` or `nea64356`.
 
-editor app url - https://hcpd-backend.herokuapp.com/api/listing?input=new&isTakingPatients=true&distance=10
-
 ### Seperate
 
 ## Testing
@@ -24,3 +22,4 @@ editor app url - https://hcpd-backend.herokuapp.com/api/listing?input=new&isTaki
 2. To build, `NODE_PROJECT=XXX NODE_ENV=production npm run build`
  
   - for Windows run like `SET NODE_PROJECT=naaf87561 && SET NODE_ENV=production && webpack -p --config ./webpack.prod.config.js` 
+  - for OX/Linux run like `NODE_PROJECT=naaf87561 NODE_ENV=production npm run build` 

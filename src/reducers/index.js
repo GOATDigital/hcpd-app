@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { message } from '../reducers/message';
-import authed from '../reducers/authed';
 import activeKeyWordFilters from '../reducers/activeKeyWordFilters';
 import doctors from '../reducers/doctors';
 import environment from '../reducers/environment';
@@ -13,7 +12,6 @@ import filterUI from '../reducers/filterUI';
 import { location } from '../reducers/location';
 
 const rootReducer = combineReducers({
-  authed,
   activeKeyWordFilters,
   doctors,
   filters,

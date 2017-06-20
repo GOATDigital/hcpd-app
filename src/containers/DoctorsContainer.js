@@ -108,7 +108,6 @@ const filterListings = (listings, filter) => {
 
 function mapStateToProps(state) {
   const {
-    authed,
     settings,
     entities,
     environment,
@@ -140,7 +139,6 @@ function mapStateToProps(state) {
   } = sort;
 
   return {
-    authed,
     isMobile,
     activeKeyWordFilters,
     filters,
