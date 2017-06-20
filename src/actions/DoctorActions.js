@@ -46,7 +46,7 @@ export function fetchDoctors(siteID) {
 
     dispatch(fetchDoctorsRequest(siteID))
 
-    const API_FULL_PATH = `${API_ADDRESS}/api/listings?siteId=${siteID}&input=new&isTakingPatients=true&distance=10&page=${START_PAGE}`;
+    const API_FULL_PATH = `${API_ADDRESS}/api/listings?siteId=${siteID}0&page=${START_PAGE}`;
     return fetch(API_FULL_PATH, {
         method: 'GET'
       }, {
