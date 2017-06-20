@@ -37,7 +37,7 @@ module.exports = {
     //new webpack.optimize.CommonsChunkPlugin('vendor', './build/js/vendor.js', Infinity),
     new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV ? process.env.NODE_ENV.trim() : 'development'),
-         '__APPID__': JSON.stringify(process.env.NODE_PROJECT)
+         '__APPID__': JSON.stringify(process.env.NODE_PROJECT).trim()
     }),
     // Optimize the bundle in release (production) mode
     new webpack.optimize.UglifyJsPlugin({
