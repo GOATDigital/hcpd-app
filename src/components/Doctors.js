@@ -68,7 +68,7 @@ class Doctors extends Component {
       filteredListings
     } = this.props;
     
-    const isNaaf = (__APPID__.trim() === 'naaf87561');
+    const isNaaf = (__APPID__ === 'naaf87561');
 
     return (
       <div className={`page-bg doctors ${(sticky ? 'sticky' : '')}`} >

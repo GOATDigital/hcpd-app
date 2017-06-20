@@ -13,6 +13,13 @@ import { initSettings } from '../actions/SettingsActions';
 import cssStyles from '../../styles/app-specific/naaf87561.scss';
 import cssStyles2 from '../../styles/app-specific/nea64356.scss';
 
+import {header_naaf} from '../custom/naaf/constants';
+import {header_nea} from '../custom/nea/constants';
+
+const header_data = (__APPID__ === 'naaf87561') ? header_naaf : header_nea;
+
+console.log(__APPID__.length, JSON.stringify(__APPID__) == 'naaf87561');
+
 const propTypes = {
   config: PropTypes.object
 };
@@ -39,11 +46,7 @@ class AppContainer extends Component {
     }
   }
   renderTextHeader() {
-    
-    const header_naaf = <Header head={'Young Adult Mentor Program'} subhead={'Find a peer mentor with experience with alopecia areata'} />;
-    const header_nea = <Header head={'Health Care Provider Directory'} subhead={'Find a health care provider with experience treating Eczema'} />;
-    
-    return (__APPID__.trim() === 'naaf87561') ? header_naaf : header_nea;
+    return <Header head={header_data.head} subhead={header_data.subhead} />;
   }
   render() {
     const { height, isMobile, width } = this.props;

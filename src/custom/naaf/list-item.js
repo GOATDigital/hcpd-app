@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { API_ADDRESS } from '../../constants/Config';
-import {specificFilterTypes} from '../../constants/item-design/naaf87561';
+import {specificFilterTypes} from './utils';
 
 const EXTERNAL_URL = 'https://naaf.org/enroll-your-child-into-the-mentee-program?mentor=';
 

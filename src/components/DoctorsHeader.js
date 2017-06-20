@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
+import {list_titles_naaf} from '../custom/naaf/constants';
+import {list_titles_nea} from '../custom/nea/constants';
+
+const header_data = (__APPID__ === 'naaf87561') ? list_titles_naaf : list_titles_nea;
+
 export default class DoctorsHeader extends Component {
   render() {
-    let headers = (__APPID__.trim() === 'naaf87561') ? ['Name', 'Age,<br>Gender', 'Will meet<br>with', 'Type of Alopecia<br>Areata', 'Contact'] : ['Badge', 'Name', 'Type of Practice', 'Payment options', 'Contacts'];
     return (
       <div className="doctorsHeader">   
         <div className="flex">
         {
-          headers.map((header, index) => {
+          header_data.map((header, index) => {
             return (
              <div key={header} className={'col' + ' col-' + index}>
                 <p dangerouslySetInnerHTML={{ __html: header}} />

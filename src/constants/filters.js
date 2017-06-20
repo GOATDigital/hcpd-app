@@ -1,6 +1,6 @@
-import FiltersNAAF from './item-design/naaf87561';
-import FiltersNEA from './item-design/nea64356';
+import FiltersNAAF from '../custom/naaf/utils';
+import FiltersNEA from '../custom/nea/utils';
 
-const filters = (__APPID__.trim() === 'naaf87561') ? FiltersNAAF : FiltersNEA;
+const filters = (__APPID__ === 'naaf87561') ? FiltersNAAF : FiltersNEA;
 
 export default filters;

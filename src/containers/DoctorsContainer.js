@@ -1,41 +1,40 @@
 import React, {
-  Component
+  Component,
 } from 'react';
 import {
-  connect
+  connect,
 } from 'react-redux';
 import {
   fetchDoctorsIfNeeded,
   filterDoctorsStart,
-  filterDoctorsFinish
+  filterDoctorsFinish,
 } from '../actions/DoctorActions';
 import MobileDoctors from '../components/MobileDoctors';
 import Doctors from '../components/Doctors';
 import {
-  CLIENT_ID
+  CLIENT_ID,
 } from '../constants/Config';
 
-//DB specific read/compare methods
+// DB specific read/compare methods
 import {
   valueComparator,
   valueExtractor,
   keyWordFilters,
   checkboxTypeFilter,
-  filterByGeoDistance
-} from '../constants/item-design/naaf87561';
+  filterByGeoDistance,
+} from '../custom/naaf/utils';
 
 import {
-  flatten
+  flatten,
 } from 'lodash';
-
 
 class DoctorsContainer extends Component {
 
   componentDidMount() {
     const {
-      dispatch
-    } = this.props
-    dispatch(fetchDoctorsIfNeeded(CLIENT_ID))
+      dispatch,
+    } = this.props;
+    dispatch(fetchDoctorsIfNeeded(CLIENT_ID));
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -43,68 +42,65 @@ class DoctorsContainer extends Component {
   }
 
   render() {
-    return <Doctors { ...this.props
+    return (<Doctors
+{...this.props
     }
-    />;
+    />);
   }
 }
 
 const getFilteredListings = (listings, activeFilters, filters, location, activeKeyWordFilters, settings, sortBy) => {
 
-  let sorted = sortListings(listings, sortBy);
-  let keyWordFiltered = keyWordFilters(sorted, activeKeyWordFilters, settings.filters);
-  let filtered = filterByGeoDistance(keyWordFiltered, location)
+  const sorted = sortListings(listings, sortBy);
+  const keyWordFiltered = keyWordFilters(sorted, activeKeyWordFilters, settings.filters);
+  let filtered = filterByGeoDistance(keyWordFiltered, location);
 
-  const filterGroups = _.partition(activeFilters.filter(f => f), i => filters[i].type === "Checkbox") || [
+  const filterGroups = _.partition(activeFilters.filter(f => f), i => filters[i].type === 'Checkbox') || [
     [],
-    []
+    [],
   ];
 
-  if (filterGroups[0].length) { //multiple choice
+  if (filterGroups[0].length) { // multiple choice
     const groups = _.groupBy(filterGroups[0].map(filter => filters[filter]), filter => filter.name);
-    filtered = filtered.filter(item => {
+    filtered = filtered.filter((item) => {
       let itemFits = true;
-      Object.keys(groups).forEach(groupIndex => {
+      Object.keys(groups).forEach((groupIndex) => {
         itemFits = itemFits ? checkboxTypeFilter(groups[groupIndex], item) : false;
-      })
+      });
       return itemFits;
-    })
-  }
-
-  if (filterGroups[1].length) { //single choice
-    filterGroups[1].map(filter => {
-      if (filter) filtered = filterListings(filtered, filters[filter])
     });
   }
 
-  return filtered ? filtered : listings;
-}
+  if (filterGroups[1].length) { // single choice
+    filterGroups[1].map((filter) => {
+      if (filter) filtered = filterListings(filtered, filters[filter]);
+    });
+  }
+
+  return filtered || listings;
+};
 
 const sortListings = (listings, sortBy) => {
   if (!listings) {
-    return
+    return;
   }
   const toSort = listings;
   if (sortBy.value === 'Featured') {
-    return toSort.slice().sort((a, b) => {
-      return (a.featured === b.featured) ? 0 : a.featured ? -1 : 1;
-    })
-  } else {
-    return toSort.slice().sort((a, b) => {
+    return toSort.slice().sort((a, b) => (a.featured === b.featured) ? 0 : a.featured ? -1 : 1);
+  }
+  return toSort.slice().sort((a, b) => {
       if (a.last_name < b.last_name) return -1;
       if (a.last_name > b.last_name) return 1;
       return 0;
     });
-  }
-}
 
-const filterListings = (listings, filter) => {
-  return listings.filter((listing) => {
-    const itemValue = valueExtractor(listing, filter.name);
-    if (itemValue == null) return false;
-    return valueComparator[filter.name](itemValue, filter.value);
-  })
-}
+};
+
+const filterListings = (listings, filter) => listings.filter((listing) => {
+  const itemValue = valueExtractor(listing, filter.name);
+  if (itemValue == null) return false;
+  return valueComparator[filter.name](itemValue, filter.value);
+});
 
 function mapStateToProps(state) {
   const {
@@ -117,25 +113,25 @@ function mapStateToProps(state) {
     filters,
     location,
     activeKeyWordFilters,
-    sort
+    sort,
   } = state;
   const {
     height,
-    isMobile
+    isMobile,
   } = environment;
   const {
     listings,
     loading,
     error,
-    isError
+    isError,
   } = doctors;
   const {
     radius,
     lat,
-    long
+    long,
   } = location;
   const {
-    sortBy
+    sortBy,
   } = sort;
 
   return {

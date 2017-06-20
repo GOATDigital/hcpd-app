@@ -10,6 +10,11 @@ import DoctorCount from '../components/DoctorCount';
 import { toggleFilters } from '../actions/FilterActions';
 import { clearFilters } from '../actions/FilterActions';
 
+import {find_text_naaf} from '../custom/naaf/constants';
+import {find_text_nea} from '../custom/nea/constants';
+
+const find_text = (__APPID__ === 'naaf87561') ? find_text_naaf : find_text_nea;
+
 class FilterBar extends Component {
 
   activeFilters = {};
@@ -106,17 +111,13 @@ class FilterBar extends Component {
     })
   }
 
-  renderProviderText () {
-    return (__APPID__.trim() === 'naaf87561') ? <p className='find-provider-text'>Find a peer mentor near you</p> : <p className='find-provider-text'>Find a Provider Near You</p>;
-  }
-
   render() {
     return (
       <div className="FilterBar">
         <div className="statesFilter">
-          {this.renderProviderText()}
+          <p className='find-provider-text'>{find_text}</p>
           <LocationSearchContainer />
-          {(__APPID__.trim() === 'naaf87561') ? <DoctorCount count={this.props.count}/> : ''}
+          {(__APPID__ === 'naaf87561') ? <DoctorCount count={this.props.count}/> : ''}
           <div className="filterToggleButton">
             {this.renderToggleButton()}
           </div>

@@ -1,6 +1,6 @@
-import DoctorItemNAAF from './item-design/naaf87561';
-import DoctorItemNEA from './item-design/nea64356';
+import DoctorItemNAAF from './../custom/naaf/list-item';
+import DoctorItemNEA from './../custom/nea/list-item';
 
-const DoctorItem = (__APPID__.trim() === 'naaf87561') ? DoctorItemNAAF : DoctorItemNEA;
+const DoctorItem = (__APPID__ === 'naaf87561') ? DoctorItemNAAF : DoctorItemNEA;
 
 export default DoctorItem;

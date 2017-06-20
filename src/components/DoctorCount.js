@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-const DoctorCount = ({count}) => {
-  
-  const countText = (__APPID__.trim() === 'naaf87561') ? 'peer mentors match your search' : 'doctors matching your search';
+import {match_text_naaf} from '../custom/naaf/constants';
+import {match_text_nea} from '../custom/nea/constants';
 
-  return (
+const countText = (__APPID__ === 'naaf87561') ? match_text_naaf : match_text_nea;
+
+const DoctorCount = ({count}) => {
+    return (
     <div className="DoctorCount">
       <p>{count} {countText}</p>
     </div>
