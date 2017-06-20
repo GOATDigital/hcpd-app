@@ -3,7 +3,7 @@ const AWS_API = 'http://ec2-34-210-250-51.us-west-2.compute.amazonaws.com:8080';
 
 export const CLIENT_ID = __APPID__.trim();
 
-export const API_ADDRESS = AWS_API;
+export const API_ADDRESS = HEROKU_API;
 export const API_USER_ID = '59285539b8deb639861a1e07';
 export const API_USERNAME = 'nea';
 export const API_PASSWORD = 'nea-hcpd';
