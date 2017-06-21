@@ -18,8 +18,6 @@ import {header_nea} from '../custom/nea/constants';
 
 const header_data = (__APPID__ === 'naaf87561') ? header_naaf : header_nea;
 
-console.log(__APPID__.length, JSON.stringify(__APPID__) == 'naaf87561');
-
 const propTypes = {
   config: PropTypes.object
 };
