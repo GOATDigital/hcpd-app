@@ -1,4 +1,7 @@
 /* NEA design */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@import '../core/geosuggest';
 
 div.nea64356 {
     .col-0 {
@@ -12,6 +15,16 @@ div.nea64356 {
         &:hover {
             color: #ff9d00;
         }
+    }
+    .header-wrapper {
+        padding: 20px 25px;
+    }
+    .header h1, .header h2 {
+        text-align: left;
+    }
+    p.certification {
+        font-size: 12px;
+        color: #4A4A4A;
     }
     a.website-link {
         color: #84a331;

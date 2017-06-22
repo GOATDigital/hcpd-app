@@ -10,8 +10,8 @@ import { initEnvironment } from '../actions/EnvironmentActions';
 import { initNavigator } from '../actions/NavigatorActions';
 import { initSettings } from '../actions/SettingsActions';
 
-import cssStyles from '../../styles/app-specific/naaf87561.scss';
-import cssStyles2 from '../../styles/app-specific/nea64356.scss';
+import cssStyles from '../../styles/custom/naaf87561.scss';
+import cssStyles2 from '../../styles/custom/nea64356.scss';
 
 import {header_naaf} from '../custom/naaf/constants';
 import {header_nea} from '../custom/nea/constants';
