@@ -32,6 +32,6 @@ const init = (configObject) => {
 };
 
 
-window.Hcpd_app = {init};
+window.Hcpd_internal = {init};
 
 export default init;
