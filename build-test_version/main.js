@@ -1,6 +1,6 @@
 function loadScript(appId) {
     var script = document.createElement('script');
-    var PATH = 'https://s3-us-west-2.amazonaws.com/hcpd-v2/';
+    var PATH = 'https://s3-us-west-2.amazonaws.com/hcpd-v2/__test/';
     var el = document.getElementById('hcpd-container');
     script.src = PATH + 'js/custom/' + appId.replace(/\d/g, '') + '.js';
     script.onload = function () {
