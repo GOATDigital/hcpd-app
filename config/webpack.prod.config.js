@@ -16,18 +16,18 @@ module.exports = {
     main: './src/main.js',
     vendor: [
       'lodash',
-      'normalizr',
       'react',
       'redux',
+      'geolib',
     ],
   },
   output: {
     publicPath: 'http://localhost:8080/',
-    filename: './build/js/[name].js',
+    filename: './build/js/custom/[name].js',
   },
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel', exclude: [nodeModulesDir] },
+      { test: /\.js$/, loader: 'babel', exclude: [nodeModulesDir], query: {compact: false} },
       { test: /\.scss$/,  loaders: ['style', 'css', 'postcss', 'sass']}, //loader: ExtractTextPlugin.extract('style', 'css!postcss!sass') }
     ],
   },
