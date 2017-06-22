@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InfiniteScroll from 'react-infinite-scroller';
+//import InfiniteScroll from 'react-infinite-scroller';
 
 import DoctorItem from '../components/DoctorItem';
 import Stickify from '../components/Stickify';
