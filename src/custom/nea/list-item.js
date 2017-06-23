@@ -3,16 +3,49 @@
 import React from 'react';
 import { API_ADDRESS } from '../../constants/Config';
 
-const DoctorItemNEA = ({payment_methods, languages_spoken, type_of_practice, office_managers_name, practice_website, practice_email, practice_phone, zip_code, state, city, address_2, address_1, country, practice_name, taking_patients, sex, email , designation, last_name, first_name, featured, has_video, doctor_image}) => {
-  let des = `${designation}. ` + first_name + ' ' + last_name;
-  //dev
-  doctor_image = true;
+const data = {
+  certificate: "NEA CME certificate in Eczema Excellence ",
+  first_name: "Dr. David",
+  last_name: "Van Veen",
+  specialisation: "Biologics",
+  practice_website: "www.doctorsite.com",
+  practice_phone:"503-555-5555",
+  practice_email: "doctoremail@doctorsite.com",
+  practice_type: ["Biologics"],
+  payment_methods: ["Medicaid", "Medicaid"],
+  city: '123 NE First St. Portland',
+  state: 'OR',
+  zip_code: '97209',
+  doctor_image:'some-mage-url'
+};
+
+
+const DoctorItemNEA = () => {
+
+  const {
+ certificate,
+  first_name,
+  last_name,
+  specialisation,
+  practice_website,
+  practice_phone,
+  practice_email,
+  practice_type,
+  payment_methods,
+  city,
+  state,
+  zip_code,
+  doctor_image
+} = data;
+
+  const types = practice_type.join(', ').substring(practice_type.length-2);
+
   return (
     <div className='doctor-item flex'>
        <div className='col col-image'>
           {doctor_image ?<div className='inline doctor-image'>
-          <span className='image-wrapper'><img src={`${API_ADDRESS}/media/images/${doctor_image}`} /></span></div>: ''}
-        <p className='certification'>{'certification and certification'}</p>
+          <span className='image-wrapper'><img src={doctor_image} /></span></div>: ''}
+        <p className='certification'>{certificate}</p>
       </div>
       <div className='col general-text'>
         <p className='doctor-title'>{`${last_name} ${first_name}`}</p>
@@ -20,7 +53,7 @@ const DoctorItemNEA = ({payment_methods, languages_spoken, type_of_practice, off
         <p>{practice_website}</p>
       </div>
       <div className='col'>
-        <p className=''>{type_of_practice}</p>
+        <p className=''>{practice_type}</p>
       </div>
       <div className='col'>
         {payment_methods ? payment_methods.map(method => <p key={Math.random()} >{method}</p>) : ''}

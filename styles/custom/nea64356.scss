@@ -3,7 +3,51 @@
 
 @import '../core/geosuggest';
 
+$breakpoint-tablet: 960px;
+$breakpoint-mobile: 650px;
+
 div.nea64356 {
+
+     .geosuggest {
+        width: 66% !important;
+        padding: 0rem 5px;
+        @media (max-width: $breakpoint-tablet) {
+            flex: 100%;
+            padding: 1rem 5px 1px 5px;
+            margin: 0 1rem;
+        }
+        .geosuggest__input {
+            border-radius: 4px;
+            border: 1px solid #D3D3D3;
+            height: 50px !important;
+            font-size: 16px;
+            width: 100%;
+            padding: 5px;
+            color: #aaa;
+            box-sizing: border-box !important;
+        }
+        .geosuggest__suggests {
+            max-height: 198px;
+            overflow-y: auto;
+            list-style-type: none;
+            position: absolute;
+            z-index: 1000;
+            .geosuggest__item {
+                background-color: #fff;
+                color: #333;
+                cursor: pointer;
+                display: block;
+                padding: 8px 10px;
+                &:hover {
+                    background: rgb(101, 209, 218);
+                }
+                &--active {
+                    background: rgb(101, 209, 218);
+                }
+            }
+        }
+    }
+
     .col-0 {
         flex: 0 0 140px;
     }
@@ -19,6 +63,7 @@ div.nea64356 {
     .header-wrapper {
         padding: 20px 25px;
     }
+   
     .header h1, .header h2 {
         text-align: left;
     }
