@@ -26,4 +26,7 @@ For now there are 2 target (app_ids) available: `naaf87561` or `nea64356`.
  - Later when config details passed to `/main.js`, the `TCPD_APP_ID` is required for the app to start
  - All `/main.js`, does is read the config and load correct .js file that was build for this specific target app_id
 
+**Windows users**
+Be aware to set a correct `NODE_PROJECT` when calling from CL, can use like so `NODE_PROJECT=naaf87561&&`
+
  

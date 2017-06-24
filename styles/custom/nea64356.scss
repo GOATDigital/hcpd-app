@@ -7,6 +7,11 @@ $breakpoint-tablet: 960px;
 $breakpoint-mobile: 650px;
 
 div.nea64356 {
+    text-align: left;
+
+    space {
+        padding: 0rem .5rem;
+    }
 
      .geosuggest {
         width: 66% !important;
@@ -53,6 +58,24 @@ div.nea64356 {
     }
     .col-image {
         flex: 0 0 140px;
+    }
+    .item-0 {
+        flex: 0 0 15%;
+    }
+    .item-1 {
+        flex: 0 0 20%;
+    }
+    .item-2 {
+        flex: 0 0 25%;
+    }
+    .item-3 {
+        flex: 0 0 18%;
+    }
+    .item-4 {
+        flex: 0 0 18%;
+    }
+    .general-text {
+        text-align: left;
     }
     .email-link {
         cursor: pointer;

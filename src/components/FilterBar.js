@@ -61,7 +61,21 @@ class FilterBar extends Component {
     )
   }
 
-  renderTestInput() {
+
+  renderRadioInput() {
+    const { filters } = this.props;
+    let radioFilter = filters.filter(filter => filter.type === 'Radio')[0];
+    return (
+      <div className={'space'}>
+        {radioFilter.name}
+      <div className={'radioTrue'}><input type={'radio'} name={'radioFilter'}/><label>Yes</label></div>
+       <div className={'radioFalse'}><input type={'radio'} name={'radioFilter'}/><label>No</label></div>
+      </div>
+    )
+  }
+
+
+  renderKeywordInput() {
     const { filters } = this.props;
     let keywordFilters = filters.filter(filter => filter.type === 'Keyword');
     return (
@@ -79,12 +93,13 @@ class FilterBar extends Component {
   renderSelectFilters() {
     const { filters } = this.props;
     return (
-      filters.map((filter) => {
+      filters.map((filter, index) => {
         if (filter.type == 'Checkbox' || filter.type == 'Select') {
           return (
             <SelectContainer
               key={filter.name}
               name={filter.name}
+              itemIndex={index}
               options={filter.options}
               multi={filter.type == 'Checkbox' ? true : false}
               handleChange={this.handleChange}
@@ -95,20 +110,6 @@ class FilterBar extends Component {
         }
       })
     )
-  }
-
-  renderKeyWordFilters = () => {
-    const { filters } = this.props;
-     return filters.forEach((filter) => {
-      if (filter.type == 'Keyword') {
-        return (
-      <Button
-        text={this.props.filtersVisible ? 'Hide Filters' : 'Show More Filters'}
-        onClick={this.handleClick}
-      />
-      )
-      }
-    })
   }
 
   render() {
@@ -124,7 +125,8 @@ class FilterBar extends Component {
         </div>
         <div className="customFilters" style={{display: (this.props.filtersVisible ? 'flex' : 'none')}}>
           {this.renderSelectFilters()}
-          {this.renderTestInput()}
+          {this.renderKeywordInput()}
+          {this.renderRadioInput()}
         </div>
       </div>
     )

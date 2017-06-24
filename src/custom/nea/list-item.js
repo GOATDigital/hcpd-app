@@ -50,6 +50,7 @@ const DoctorItemNEA = () => {
       <div className='col general-text'>
         <p className='doctor-title'>{`${last_name} ${first_name}`}</p>
         <p>{`${city}, ${state}, ${zip_code}`}</p>
+        {practice_email ? <a href={`mailto: ${practice_email}`} className='email-link'>{practice_email}</a> : ''}
         <p>{practice_website}</p>
       </div>
       <div className='col'>
@@ -60,7 +61,7 @@ const DoctorItemNEA = () => {
       </div>
       <div className='col'>
         <p className='phone-text'>{practice_phone}</p>
-        <p className='email-link'>{practice_email}</p>
+ 
         <a className='website-link' href="{practice_website}">{'Clinical trial site'}</a>
       </div>
     </div>);

@@ -19,7 +19,7 @@ class SelectContainer extends Component {
   }
   render() {
     return (
-      <div className="space">
+      <div className={`space item-${this.props.itemIndex}`}>
         <p className="label">{this.props.name}</p>
         <Select { ...this.props } value={this.state.selected} onChange={this.onSelect} />
       </div>
